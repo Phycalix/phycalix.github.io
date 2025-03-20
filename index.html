@@ -18,7 +18,7 @@
 
         /* Typography */
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap'); /* Updated font for "For the love of Microalgae" */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap'); /* Changed to Nunito for better readability */
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -61,11 +61,11 @@
             color: var(--calix-orange); /* Orange für "Calix" */
         }
 
-        /* New Script Font for "For the love of Microalgae" */
+        /* New Font for "For the love of Microalgae" */
         .love-text {
-            font-family: 'Delius', cursive;
-            font-size: 22px; /* Adjusted size for readability */
-            font-style: italic; /* Italicized text */
+            font-family: 'Nunito', sans-serif; /* Changed to Nunito */
+            font-size: 22px; 
+            font-style: italic;
             color: white;
             margin-top: 10px;
             letter-spacing: 1px;
@@ -164,7 +164,7 @@
         .bullet-container {
             margin-top: 30px;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2-column grid */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             padding: 20px;
         }
@@ -185,13 +185,20 @@
             background: var(--calix-orange);
             transform: translateY(-5px);
         }
+
+        /* Ensuring Bullet Points fit on smaller screens */
+        @media (max-width: 768px) {
+            .bullet-container {
+                grid-template-columns: 1fr; /* Stack bullet points for mobile */
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span>
-        <div class="love-text">For the love of Microalgae</div> <!-- Updated Text with Italics -->
+        <div class="love-text">For the love of Microalgae</div>
     </header>
 
     <div class="container">
