@@ -7,16 +7,20 @@
     <style>
         /* Color Palette */
         :root {
-            --phy-green: #2E7D32;
-            --calix-orange: #FF6F00;
-            --background-gradient: linear-gradient(135deg, #E8F5E9, #FFF3E0);
-            --text-color: #333;
+            --phy-green: #15665E;
+            --calix-orange: #FF5E5B;
+            --contrast-grey: #333333;
+            --background-gradient: linear-gradient(135deg, #E6F2EF, #FFF0F0);
+            --text-color: var(--contrast-grey);
             --card-bg: rgba(255, 255, 255, 0.9);
             --hover-shadow: rgba(0, 0, 0, 0.15);
         }
 
+        /* Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             background: var(--background-gradient);
             text-align: center;
             margin: 0;
@@ -44,10 +48,14 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: var(--phy-green);
+            color: white;
         }
 
-        .logo span {
+        .logo .phy {
+            color: white;
+        }
+
+        .logo .calix {
             color: var(--calix-orange);
         }
 
@@ -148,12 +156,12 @@
 <body>
 
     <header>
-        Welcome to <span class="logo">Phy<span>Calix</span></span> – Redefining Biotech Innovation
+        Welcome to <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span> – Redefining Biotech Innovation
     </header>
 
     <div class="container">
         <h1>Shaping the Future of Microalgae</h1>
-        <p>At <span class="logo">Phy<span>Calix</span></span>, we pioneer the next generation of biotechnology, leveraging the versatility of microalgae to transform multiple industries.</p>
+        <p>At <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span>, we pioneer the next generation of biotechnology, leveraging the versatility of microalgae to transform multiple industries.</p>
 
         <div class="divider"></div>
 
@@ -161,7 +169,7 @@
             <img src="picture1" alt="PhyCalix CEO working on next-gen biotechnology">
         </div>
 
-        <p>Our CEO is at the forefront of developing groundbreaking solutions, bridging the gap between <span class="highlight">nature and cutting-edge technology</span>.</p>
+        <p>Our CEO is at the forefront of developing groundbreaking solutions, bridging the gap between <span class="highlight">cutting-edge biotechnology</span>.</p>
 
         <div class="divider"></div>
 
@@ -177,7 +185,7 @@
 
         <div class="divider"></div>
 
-        <p class="vision">"Harnessing the power of microalgae to build a **healthier, more sustainable** future."</p>
+        <p class="vision">Harnessing the power of microalgae to build a <span class="highlight">healthier, more sustainable</span> future.</p>
     </div>
 
     <footer>
