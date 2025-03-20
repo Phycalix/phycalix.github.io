@@ -1,178 +1,179 @@
+/* Color Palette */
+:root {
+    --phy-green: #15665E;
+    --calix-orange: #FF5E5B;
+    --contrast-grey: #333333;
+    --background-gradient: linear-gradient(135deg, #E6F2EF, #FFF0F0);
+    --text-color: var(--contrast-grey);
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --hover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--background-gradient);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Top Banner Style */
+header {
+    background: #333333; /* Grau */
+    color: white;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px var(--hover-shadow);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo .phy {
+    color: var(--phy-green); /* Grün für "Phy" */
+}
+
+.logo .calix {
+    color: var(--calix-orange); /* Orange für "Calix" */
+}
+
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px var(--hover-shadow);
+}
+
+h1 {
+    color: var(--phy-green);
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--calix-orange);
+    font-weight: bold;
+}
+
+.image-container {
+    margin-top: 20px;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px var(--hover-shadow);
+}
+
+.divider {
+    width: 50px;
+    height: 4px;
+    background: var(--calix-orange);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.fields {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.field {
+    background: var(--phy-green);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px var(--hover-shadow);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.field:hover {
+    transform: translateY(-5px);
+    background: var(--calix-orange);
+}
+
+.vision {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--phy-green);
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--phy-green);
+    color: white;
+    font-size: 14px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Bullet Points Style */
+.bullet-container {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2-column grid */
+    gap: 20px;
+    padding: 20px;
+}
+
+.bullet-point {
+    background: var(--phy-green);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 3px 6px var(--hover-shadow);
+    transition: background 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.bullet-point:hover {
+    background: var(--calix-orange);
+    transform: translateY(-5px);
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to PhyCalix</title>
+    <title>Welcome to Phycalix</title>
     <style>
-        /* Color Palette */
-        :root {
-            --phy-green: #15665E;
-            --calix-orange: #FF5E5B;
-            --contrast-grey: #333333;
-            --background-gradient: linear-gradient(135deg, #E6F2EF, #FFF0F0);
-            --text-color: var(--contrast-grey);
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --hover-shadow: rgba(0, 0, 0, 0.15);
-        }
-
-        /* Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
-
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--background-gradient);
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Top Banner Style */
-        header {
-            background: #333333; /* Grau */
-            color: white;
-            padding: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 8px var(--hover-shadow);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-        }
-
-        .logo .phy {
-            color: var(--phy-green); /* Grün für "Phy" */
-        }
-
-        .logo .calix {
-            color: var(--calix-orange); /* Orange für "Calix" */
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 30px auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 6px 15px var(--hover-shadow);
-        }
-
-        h1 {
-            color: var(--phy-green);
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: var(--calix-orange);
-            font-weight: bold;
-        }
-
-        .image-container {
-            margin-top: 20px;
-            position: relative;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px var(--hover-shadow);
-        }
-
-        .divider {
-            width: 50px;
-            height: 4px;
-            background: var(--calix-orange);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
-
-        .fields {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .field {
-            background: var(--phy-green);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 3px 6px var(--hover-shadow);
-            transition: transform 0.2s, background 0.3s;
-        }
-
-        .field:hover {
-            transform: translateY(-5px);
-            background: var(--calix-orange);
-        }
-
-        .vision {
-            margin-top: 40px;
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--phy-green);
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: var(--phy-green);
-            color: white;
-            font-size: 14px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-
-        /* Bullet Points Style */
-        .bullet-points {
-            margin-top: 30px;
-            list-style-type: disc;
-            text-align: center; /* Centers the bullet points */
-            padding-left: 20px;
-            font-size: 18px;
-            color: var(--contrast-grey);
-            max-width: 80%; /* Limit the width to keep it neat */
-            margin-left: auto;
-            margin-right: auto;
-            border: 2px dashed var(--contrast-grey); /* Dashed border */
-            padding: 20px; /* Padding inside the border */
-            border-radius: 12px; /* Rounded corners */
-        }
-
-        .bullet-points li {
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        /* Smooth Scroll Effect */
-        html {
-            scroll-behavior: smooth;
-        }
+        /* The CSS code here */
     </style>
 </head>
 <body>
@@ -195,16 +196,16 @@
 
         <div class="divider"></div>
 
-        <h2>Our Key Bullet Points</h2>
-        <ul class="bullet-points">
-            <li>Shaping the Future with cutting-edge microalgae innovations</li>
-            <li>Disrupting industries with next-gen biotechnology</li>
-            <li>Harnessing the power of nature for a universal impact</li>
-            <li>Driven by passion, powered by science</li>
-            <li>Transforming microalgae into high-value solutions</li>
-            <li>Sustainable, scalable, and revolutionary</li>
-            <li>The next frontier in food, wellness, and beyond</li>
-        </ul>
+        <h2>Our Key Innovations</h2>
+        <div class="bullet-container">
+            <div class="bullet-point">Shaping the Future with cutting-edge microalgae innovations</div>
+            <div class="bullet-point">Disrupting industries with next-gen biotechnology</div>
+            <div class="bullet-point">Harnessing the power of nature for a universal impact</div>
+            <div class="bullet-point">Driven by passion, powered by science</div>
+            <div class="bullet-point">Transforming microalgae into high-value solutions</div>
+            <div class="bullet-point">Sustainable, scalable, and revolutionary</div>
+            <div class="bullet-point">The next frontier in food, wellness, and beyond</div>
+        </div>
 
         <div class="divider"></div>
 
