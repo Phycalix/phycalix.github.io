@@ -10,7 +10,7 @@
             --phy-green: #15665E;
             --calix-orange: #FF5E5B;
             --contrast-grey: #333333;
-            --background-gradient: linear-gradient(90deg, #15665E, #FF5E5B);
+            --background-gradient: linear-gradient(130deg, #15665E, #FF5E5B);
             --text-color: var(--contrast-grey);
             --card-bg: rgba(255, 255, 255, 0.9);
             --hover-shadow: rgba(0, 0, 0, 0.15);
@@ -155,6 +155,7 @@
             grid-template-columns: 1fr 1fr; /* 2-column grid */
             gap: 20px;
             padding: 20px;
+            justify-items: center; /* Center content */
         }
 
         .bullet-point {
@@ -167,11 +168,38 @@
             box-shadow: 0 3px 6px var(--hover-shadow);
             transition: background 0.3s, transform 0.3s;
             cursor: pointer;
+            text-align: center;
         }
 
         .bullet-point:hover {
             background: var(--calix-orange);
             transform: translateY(-5px);
+        }
+
+        /* Responsiveness for mobile view */
+        @media (max-width: 768px) {
+            .bullet-container {
+                grid-template-columns: 1fr; /* Single column layout on mobile */
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .bullet-point {
+                font-size: 16px; /* Smaller font size on mobile */
+                padding: 15px; /* Adjust padding for better fitting */
+                width: 90%; /* Ensure bullet points fit within the viewport */
+                margin: 0 auto; /* Center the items */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px; /* Reduce font size for smaller screens */
+            }
+
+            p {
+                font-size: 16px; /* Adjust paragraph text size for small screens */
+            }
         }
     </style>
 </head>
