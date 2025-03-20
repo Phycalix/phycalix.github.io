@@ -152,10 +152,16 @@
         .bullet-points {
             margin-top: 30px;
             list-style-type: disc;
-            text-align: left;
+            text-align: center; /* Centers the bullet points */
             padding-left: 20px;
             font-size: 18px;
             color: var(--contrast-grey);
+            max-width: 80%; /* Limit the width to keep it neat */
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px dashed var(--contrast-grey); /* Dashed border */
+            padding: 20px; /* Padding inside the border */
+            border-radius: 12px; /* Rounded corners */
         }
 
         .bullet-points li {
@@ -189,7 +195,7 @@
 
         <div class="divider"></div>
 
-        <h2>Our Vision and Values</h2>
+        <h2>Our Key Bullet Points</h2>
         <ul class="bullet-points">
             <li>Shaping the Future with cutting-edge microalgae innovations</li>
             <li>Disrupting industries with next-gen biotechnology</li>
