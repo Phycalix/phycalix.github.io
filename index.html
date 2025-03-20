@@ -3,49 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Phycalix</title>
+    <title>Welcome to PhyCalix</title>
     <style>
         /* Color Palette */
         :root {
-            --primary-color: #00796b;
-            --secondary-color: #004d40;
-            --background-color: #f0f8f5;
+            --phy-green: #2E7D32;
+            --calix-orange: #FF6F00;
+            --background-gradient: linear-gradient(135deg, #E8F5E9, #FFF3E0);
             --text-color: #333;
-            --accent-color: #80cbc4;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --hover-shadow: rgba(0, 0, 0, 0.15);
         }
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: var(--background-color);
+            background: var(--background-gradient);
             text-align: center;
             margin: 0;
             padding: 0;
             color: var(--text-color);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         header {
-            background-color: var(--secondary-color);
+            background: var(--phy-green);
             color: white;
-            padding: 25px;
-            font-size: 26px;
+            padding: 15px;
+            font-size: 22px;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px var(--hover-shadow);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--phy-green);
+        }
+
+        .logo span {
+            color: var(--calix-orange);
         }
 
         .container {
             max-width: 850px;
-            margin: 40px auto;
-            background: white;
+            margin: 30px auto;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 6px 15px var(--hover-shadow);
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 30px;
+            color: var(--phy-green);
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
@@ -55,25 +72,26 @@
         }
 
         .highlight {
-            color: var(--primary-color);
+            color: var(--calix-orange);
             font-weight: bold;
         }
 
         .image-container {
             margin-top: 20px;
             position: relative;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         img {
             max-width: 100%;
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px var(--hover-shadow);
         }
 
         .divider {
             width: 50px;
             height: 4px;
-            background: var(--accent-color);
+            background: var(--calix-orange);
             margin: 20px auto;
             border-radius: 2px;
         }
@@ -81,54 +99,69 @@
         .fields {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-top: 30px;
         }
 
         .field {
-            background: var(--primary-color);
+            background: var(--phy-green);
             color: white;
             padding: 15px 20px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 3px 6px var(--hover-shadow);
+            transition: transform 0.2s, background 0.3s;
         }
 
         .field:hover {
             transform: translateY(-5px);
-            background: var(--secondary-color);
+            background: var(--calix-orange);
+        }
+
+        .vision {
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--phy-green);
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
 
         footer {
             margin-top: 40px;
             padding: 20px;
-            background: var(--secondary-color);
+            background: var(--phy-green);
             color: white;
             font-size: 14px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
+        }
+
+        /* Smooth Scroll Effect */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
 
     <header>
-        Welcome to Phycalix – Redefining Biotech Innovation
+        Welcome to <span class="logo">Phy<span>Calix</span></span> – Redefining Biotech Innovation
     </header>
 
     <div class="container">
         <h1>Shaping the Future of Microalgae</h1>
-        <p>At <span class="highlight">Phycalix</span>, we pioneer the next generation of biotechnology, leveraging the versatility of microalgae to transform multiple industries.</p>
+        <p>At <span class="logo">Phy<span>Calix</span></span>, we pioneer the next generation of biotechnology, leveraging the versatility of microalgae to transform multiple industries.</p>
 
         <div class="divider"></div>
 
         <div class="image-container">
-            <img src="picture1" alt="Phycalix CEO working on next-gen biotechnology">
+            <img src="picture1" alt="PhyCalix CEO working on next-gen biotechnology">
         </div>
 
-        <p>Our CEO is at the forefront of developing groundbreaking solutions, bridging the gap between **nature and cutting-edge technology**.</p>
+        <p>Our CEO is at the forefront of developing groundbreaking solutions, bridging the gap between <span class="highlight">nature and cutting-edge technology</span>.</p>
 
         <div class="divider"></div>
 
@@ -139,11 +172,16 @@
             <div class="field">Cosmetics</div>
             <div class="field">Nutrition</div>
             <div class="field">Lifestyle</div>
+            <div class="field">Pharmaceuticals</div>
         </div>
+
+        <div class="divider"></div>
+
+        <p class="vision">"Harnessing the power of microalgae to build a **healthier, more sustainable** future."</p>
     </div>
 
     <footer>
-        © 2025 Phycalix. All rights reserved.
+        © 2025 PhyCalix. All rights reserved.
     </footer>
 
 </body>
