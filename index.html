@@ -10,10 +10,11 @@
             --phy-green: #15665E;
             --calix-orange: #FF5E5B;
             --contrast-grey: #333333;
-            --background-gradient: linear-gradient(130deg, #15665E, #FF5E5B);
+            --background-gradient: linear-gradient(120deg, #15665E, #FF5E5B);
             --text-color: var(--contrast-grey);
             --card-bg: rgba(255, 255, 255, 0.9);
             --hover-shadow: rgba(0, 0, 0, 0.15);
+            --highlight-color: #FFD700; /* New highlight color */
         }
 
         /* Typography */
@@ -155,7 +156,6 @@
             grid-template-columns: 1fr 1fr; /* 2-column grid */
             gap: 20px;
             padding: 20px;
-            justify-items: center; /* Center content */
         }
 
         .bullet-point {
@@ -168,7 +168,6 @@
             box-shadow: 0 3px 6px var(--hover-shadow);
             transition: background 0.3s, transform 0.3s;
             cursor: pointer;
-            text-align: center;
         }
 
         .bullet-point:hover {
@@ -176,37 +175,16 @@
             transform: translateY(-5px);
         }
 
-        /* Responsiveness for mobile view */
-        @media (max-width: 768px) {
-            .bullet-container {
-                grid-template-columns: 1fr; /* Single column layout on mobile */
-                gap: 15px;
-                padding: 10px;
-            }
-
-            .bullet-point {
-                font-size: 16px; /* Smaller font size on mobile */
-                padding: 15px; /* Adjust padding for better fitting */
-                width: 90%; /* Ensure bullet points fit within the viewport */
-                margin: 0 auto; /* Center the items */
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 24px; /* Reduce font size for smaller screens */
-            }
-
-            p {
-                font-size: 16px; /* Adjust paragraph text size for small screens */
-            }
+        .highlight-bullet {
+            background: var(--highlight-color); /* Highlighted Bullet Point Color */
+            color: black;
         }
     </style>
 </head>
 <body>
 
     <header>
-        Welcome to <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span> – Redefining Biotech Innovation
+        <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span>
     </header>
 
     <div class="container">
@@ -225,9 +203,9 @@
 
         <h2>Our Vision and Values</h2>
         <div class="bullet-container">
+            <div class="bullet-point highlight-bullet">Driven by passion, powered by science</div> <!-- Highlighted Bullet Point -->
             <div class="bullet-point">Shaping the Future with cutting-edge microalgae innovations</div>
             <div class="bullet-point">Disrupting industries with next-gen biotechnology</div>
-            <div class="bullet-point">Driven by passion, powered by science</div>
             <div class="bullet-point">Transforming microalgae into high-value solutions</div>
             <div class="bullet-point">Sustainable, scalable, and revolutionary</div>
             <div class="bullet-point">The next frontier in food, wellness, and beyond</div>
