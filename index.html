@@ -1,1 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breisgauer Automobile</title>
+    <style>
+        :root {
+            --breis-blue: #0B3D91;
+            --breis-red: #E63946;
+            --text-color: #333333;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --hover-shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(140deg, #0B3D91, #E63946);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background: #000;
+            color: white;
+            padding: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px var(--hover-shadow);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo .breis {
+            color: var(--breis-blue);
+        }
+
+        .logo .gauer {
+            color: var(--breis-red);
+        }
+
+        .slogan {
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-style: italic;
+            color: white;
+            margin-top: 7px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px var(--hover-shadow);
+        }
+
+        h1 {
+            color: var(--breis-blue);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: var(--breis-red);
+            font-weight: bold;
+        }
+
+        .image-container {
+            margin-top: 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px var(--hover-shadow);
+        }
+
+        .divider {
+            width: 50px;
+            height: 4px;
+            background: var(--breis-red);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .bullet-container {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .bullet-point {
+            background: var(--breis-blue);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 3px 6px var(--hover-shadow);
+            transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        .bullet-point:hover {
+            background: var(--breis-red);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .bullet-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--breis-blue);
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><span class="breis">Breis</span><span class="gauer">gauer</span> Automobile</div>
+        <div class="slogan">- Leidenschaft für Qualität, Service und Stil -</div>
+    </header>
+
+    <div class="container">
+        <h1>Willkommen bei Breisgauer Automobile</h1>
+        <p>Entdecken Sie mit <span class="logo" style="font-size: 18px;"><span class="breis">Breis</span><span class="gauer">gauer</span></span> Automobile erstklassige Fahrzeuge, maßgeschneiderten Service und automobile Leidenschaft.</p>
+
+        <div class="divider"></div>
+
+        <div class="image-container">
+            <img src="assets/autosalon.jpg" alt="Unsere Fahrzeugausstellung in Freiburg">
+        </div>
+
+        <p>Ob Sportwagen, Familienauto oder Premium-SUV – wir beraten Sie persönlich, kompetent und mit einem Ziel: <span class="highlight">Ihr perfektes Fahrzeug</span>.</p>
+
+        <div class="divider"></div>
+
+        <h2>Unsere Werte</h2>
+        <div class="bullet-container">
+            <div class="bullet-point">Exklusive Fahrzeuge – geprüft und garantiert</div>
+            <div class="bullet-point">Persönliche Beratung, maßgeschneiderter Service</div>
+            <div class="bullet-point">Schnelle und sichere Abwicklung</div>
+            <div class="bullet-point">Faire Preise und transparente Angebote</div>
+            <div class="bullet-point">Regional verwurzelt, deutschlandweit aktiv</div>
+            <div class="bullet-point">Service auch nach dem Kauf</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Unsere Markenwelt</h2>
+        <p>Wir führen eine Auswahl hochwertiger Marken wie:</p>
+
+        <div class="bullet-container">
+            <div class="bullet-point">Audi</div>
+            <div class="bullet-point">BMW</div>
+            <div class="bullet-point">Mercedes</div>
+            <div class="bullet-point">Volkswagen</div>
+            <div class="bullet-point">Porsche</div>
+            <div class="bullet-point">und mehr ...</div>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Breisgauer Automobile. Alle Rechte vorbehalten.
+    </footer>
+</body>
+</html>
 
