@@ -1,206 +1,124 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breisgauer Automobile</title>
-    <style>
-        :root {
-            --breis-blue: #0B3D91;
-            --breis-red: #E63946;
-            --text-color: #333333;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --hover-shadow: rgba(0, 0, 0, 0.15);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breisgauer Automobile</title>
+  <style>
+    :root {
+      --black: #000;
+      --red: #e63946;
+      --white: #fff;
+    }
 
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: linear-gradient(140deg, #0B3D91, #E63946);
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    header {
+      text-align: center;
+      background-color: var(--black);
+      color: var(--white);
+      padding: 30px 10px;
+    }
 
-        header {
-            background: #000;
-            color: white;
-            padding: 20px;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 8px var(--hover-shadow);
-        }
+    .logo {
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
 
-        .logo {
-            font-size: 30px;
-            font-weight: bold;
-            color: white;
-        }
+    .slogan {
+      color: var(--red);
+      font-style: italic;
+    }
 
-        .logo .breis {
-            color: var(--breis-blue);
-        }
+    h1, h2 {
+      margin-bottom: 10px;
+      color: var(--red);
+    }
 
-        .logo .gauer {
-            color: var(--breis-red);
-        }
+    main {
+      max-width: 800px;
+      margin: 30px auto;
+    }
 
-        .slogan {
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px;
-            font-style: italic;
-            color: white;
-            margin-top: 7px;
-            letter-spacing: 1px;
-            opacity: 0.8;
-        }
+    section {
+      margin-bottom: 40px;
+    }
 
-        .container {
-            max-width: 850px;
-            margin: 30px auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 6px 15px var(--hover-shadow);
-        }
+    ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
 
-        h1 {
-            color: var(--breis-blue);
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
+    a {
+      color: var(--red);
+      text-decoration: none;
+    }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+    a:hover {
+      text-decoration: underline;
+    }
 
-        .highlight {
-            color: var(--breis-red);
-            font-weight: bold;
-        }
-
-        .image-container {
-            margin-top: 20px;
-            position: relative;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px var(--hover-shadow);
-        }
-
-        .divider {
-            width: 50px;
-            height: 4px;
-            background: var(--breis-red);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
-
-        .bullet-container {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .bullet-point {
-            background: var(--breis-blue);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 3px 6px var(--hover-shadow);
-            transition: background 0.3s, transform 0.3s;
-            cursor: pointer;
-        }
-
-        .bullet-point:hover {
-            background: var(--breis-red);
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .bullet-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: var(--breis-blue);
-            color: white;
-            font-size: 14px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-    </style>
+    footer {
+      text-align: center;
+      background-color: var(--black);
+      color: var(--white);
+      padding: 15px;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo"><span class="breis">Breis</span><span class="gauer">gauer</span> Automobile</div>
-        <div class="slogan">- Leidenschaft für Qualität, Service und Stil -</div>
-    </header>
+  <header>
+    <!-- Ersetze den src-Link durch deinen tatsächlichen Logo-Dateipfad -->
+    <img src="logo.png" alt="Breisgauer Automobile Logo" class="logo" />
+    <h1>Breisgauer Automobile</h1>
+    <p class="slogan">Ihr Wohl ist unsere Zufriedenheit</p>
+  </header>
 
-    <div class="container">
-        <h1>Willkommen bei Breisgauer Automobile</h1>
-        <p>Entdecken Sie mit <span class="logo" style="font-size: 18px;"><span class="breis">Breis</span><span class="gauer">gauer</span></span> Automobile erstklassige Fahrzeuge, maßgeschneiderten Service und automobile Leidenschaft.</p>
+  <main>
+    <section>
+      <h2>Über uns</h2>
+      <p>Wir sind Ihr Ansprechpartner im Raum Freiburg & Südbaden für:</p>
+      <ul>
+        <li>An- und Verkauf von Fahrzeugen</li>
+        <li>Vermittlung & Beratung</li>
+        <li>Werkstattorganisation & TÜV-Abnahmen</li>
+        <li>Fahrzeugaufbereitung & Überführungen</li>
+      </ul>
+    </section>
 
-        <div class="divider"></div>
+    <section>
+      <h2>Kontakt</h2>
+      <p><strong>Adresse:</strong> Bundesstraße 2, 79238 Ehrenkirchen</p>
+      <p><strong>Telefon:</strong> 0176 70786623</p>
+      <p><strong>E-Mail:</strong> info@breisgauerautomobile.de</p>
+      <p><strong>Öffnungszeiten:</strong><br>
+         Mo – Fr: 09:00 – 18:00 Uhr<br>
+         Sa: 09:00 – 14:00 Uhr</p>
+    </section>
 
-        <div class="image-container">
-            <img src="assets/autosalon.jpg" alt="Unsere Fahrzeugausstellung in Freiburg">
-        </div>
+    <section>
+      <h2>Fahrzeuge auf mobile.de</h2>
+      <p>Unsere aktuellen Angebote finden Sie unter folgendem Link:</p>
+      <p><a href="https://home.mobile.de/BREISGAUERAUTOMOBILE#ses" target="_blank">→ Zu unseren Fahrzeugen auf mobile.de</a></p>
+    </section>
+  </main>
 
-        <p>Ob Sportwagen, Familienauto oder Premium-SUV – wir beraten Sie persönlich, kompetent und mit einem Ziel: <span class="highlight">Ihr perfektes Fahrzeug</span>.</p>
-
-        <div class="divider"></div>
-
-        <h2>Unsere Werte</h2>
-        <div class="bullet-container">
-            <div class="bullet-point">Exklusive Fahrzeuge – geprüft und garantiert</div>
-            <div class="bullet-point">Persönliche Beratung, maßgeschneiderter Service</div>
-            <div class="bullet-point">Schnelle und sichere Abwicklung</div>
-            <div class="bullet-point">Faire Preise und transparente Angebote</div>
-            <div class="bullet-point">Regional verwurzelt, deutschlandweit aktiv</div>
-            <div class="bullet-point">Service auch nach dem Kauf</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <h2>Unsere Markenwelt</h2>
-        <p>Wir führen eine Auswahl hochwertiger Marken wie:</p>
-
-        <div class="bullet-container">
-            <div class="bullet-point">Audi</div>
-            <div class="bullet-point">BMW</div>
-            <div class="bullet-point">Mercedes</div>
-            <div class="bullet-point">Volkswagen</div>
-            <div class="bullet-point">Porsche</div>
-            <div class="bullet-point">und mehr ...</div>
-        </div>
-    </div>
-
-    <footer>
-        © 2025 Breisgauer Automobile. Alle Rechte vorbehalten.
-    </footer>
+  <footer>
+    <p>&copy; 2025 Breisgauer Automobile. Alle Rechte vorbehalten.</p>
+  </footer>
 </body>
 </html>
-
