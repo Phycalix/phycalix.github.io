@@ -4,121 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Breisgauer Automobile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black: #000;
-      --red: #e63946;
-      --white: #fff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-      padding: 20px;
+      font-family: 'Inter', sans-serif;
     }
-
-    header {
-      text-align: center;
-      background-color: var(--black);
-      color: var(--white);
-      padding: 30px 10px;
+    /* Custom colors for Tailwind */
+    :root {
+      --color-black: #000;
+      --color-red: #e63946;
+      --color-white: #fff;
     }
-
-    .logo {
-      max-width: 250px;
-      margin-bottom: 10px;
-    }
-
-    .slogan {
-      color: var(--red);
-      font-style: italic;
-    }
-
-    h1, h2 {
-      margin-bottom: 10px;
-      color: var(--red);
-    }
-
-    main {
-      max-width: 800px;
-      margin: 30px auto;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    ul {
-      list-style: disc;
-      margin-left: 20px;
-    }
-
-    a {
-      color: var(--red);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      background-color: var(--black);
-      color: var(--white);
-      padding: 15px;
-      font-size: 0.9em;
-      margin-top: 40px;
-    }
+    .bg-custom-black { background-color: var(--color-black); }
+    .text-custom-white { color: var(--color-white); }
+    .text-custom-red { color: var(--color-red); }
+    .border-custom-red { border-color: var(--color-red); }
+    .text-custom-black { color: var(--color-black); } /* Added for explicit black text */
   </style>
 </head>
-<body>
-  <header>
-    <!-- Ersetze den src-Link durch deinen tatsächlichen Logo-Dateipfad -->
-    <img src="assets/logo.png" alt="Breisgauer Automobile Logo" class="logo" />
-    <h1>Breisgauer Automobile</h1>
-    <p class="slogan">Ihr Wohl ist unsere Zufriedenheit</p>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+  <header class="bg-custom-black text-custom-white py-10 sm:py-16 text-center shadow-lg rounded-b-lg">
+    <div class="container mx-auto px-4">
+      <img src="assets/logo.png" alt="Breisgauer Automobile Logo" class="logo mx-auto mb-4 rounded-lg shadow-md" onerror="this.onerror=null; this.src='https://placehold.co/250x80/000/e63946?text=LOGO';" />
+      <h1 class="text-4xl sm:text-5xl font-extrabold mb-2 text-custom-white">Breisgauer Automobile</h1>
+      <p class="slogan text-xl sm:text-2xl font-semibold italic text-custom-red">Ihr Wohl ist unsere Zufriedenheit</p>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Über uns</h2>
-      <p>Wir sind Ihr Ansprechpartner im Raum Freiburg & Südbaden für:</p>
-      <ul>
-        <li>An- und Verkauf von Fahrzeugen</li>
-        <li>Vermittlung & Beratung</li>
-        <li>Werkstattorganisation & TÜV-Abnahmen</li>
-        <li>Fahrzeugaufbereitung & Überführungen</li>
+  <main class="container mx-auto px-4 py-8 sm:py-12 max-w-4xl">
+
+    <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-8">
+      <h2 class="text-3xl font-bold mb-4 text-custom-red">Über uns</h2>
+      <p class="mb-4 text-lg leading-relaxed">Wir sind Ihr Ansprechpartner im Raum Freiburg & Südbaden für:</p>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-custom-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>An- und Verkauf von Fahrzeugen</li>
+        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-custom-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Vermittlung & Beratung</li>
+        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-custom-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Werkstattorganisation & TÜV-Abnahmen</li>
+        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-custom-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Fahrzeugaufbereitung & Überführungen</li>
       </ul>
     </section>
 
-    <section>
-      <h2>Kontakt</h2>
-      <p><strong>Adresse:</strong> Bundesstraße 2, 79238 Ehrenkirchen</p>
-      <p><strong>Telefon:</strong> 0176 70786623</p>
-      <p><strong>E-Mail:</strong> info@breisgauerautomobile.de</p>
-      <p><strong>Öffnungszeiten:</strong><br>
-         Mo – Fr: 09:00 – 18:00 Uhr<br>
-         Sa: 09:00 – 14:00 Uhr</p>
+    <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg mb-8">
+      <h2 class="text-3xl font-bold mb-4 text-custom-red">Kontakt</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+        <div>
+          <p class="mb-2"><strong>Adresse:</strong> Bundesstraße 2, 79238 Ehrenkirchen</p>
+          <p class="mb-2"><strong>Telefon:</strong> <a href="tel:+4917670786623" class="text-custom-red hover:underline">0176 70786623</a></p>
+          <p class="mb-2"><strong>E-Mail:</strong> <a href="mailto:info@breisgauerautomobile.de" class="text-custom-red hover:underline">info@breisgauerautomobile.de</a></p>
+        </div>
+        <div>
+          <p class="mb-2"><strong>Öffnungszeiten:</strong></p>
+          <p>Mo – Fr: 09:00 – 18:00 Uhr</p>
+          <p>Sa: 09:00 – 14:00 Uhr</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Fahrzeuge auf mobile.de</h2>
-      <p>Unsere aktuellen Angebote finden Sie unter folgendem Link:</p>
-      <p><a href="https://home.mobile.de/BREISGAUERAUTOMOBILE#ses" target="_blank">→ Zu unseren Fahrzeugen auf mobile.de</a></p>
+    <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg text-center">
+      <h2 class="text-3xl font-bold mb-4 text-custom-red">Fahrzeuge auf mobile.de</h2>
+      <p class="mb-6 text-lg leading-relaxed">Unsere aktuellen Angebote finden Sie unter folgendem Link:</p>
+      <a href="https://home.mobile.de/BREISGAUERAUTOMOBILE#ses" target="_blank"
+         class="inline-block bg-white text-custom-black font-bold py-3 px-8 rounded-full text-lg
+                border border-custom-red
+                hover:bg-custom-red hover:text-custom-white
+                transition duration-300 ease-in-out shadow-md">
+        → Zu unseren Fahrzeugen auf mobile.de
+      </a>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Breisgauer Automobile. Alle Rechte vorbehalten.</p>
+  <footer class="bg-custom-black text-custom-white py-6 text-center rounded-t-lg mt-8">
+    <div class="container mx-auto px-4">
+      <p class="text-sm">&copy; 2025 Breisgauer Automobile. Alle Rechte vorbehalten.</p>
+    </div>
   </footer>
+
 </body>
 </html>
