@@ -1,226 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Phycalix</title>
-    <style>
-        /* Color Palette */
-        :root {
-            --phy-green: #15665E;
-            --calix-orange: #FF5E5B;
-            --contrast-grey: #333333;
-            --background-gradient: linear-gradient(140deg, #15665E, #FF5E5B);
-            --text-color: var(--contrast-grey);
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --hover-shadow: rgba(0, 0, 0, 0.15);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Phycalix</title>
+  <style>
+    /* Color Palette */
+    :root {
+      --phy-green: #15665e;
+      --calix-orange: #ff5e5b;
+      --contrast-grey: #333333;
+      --background-gradient: linear-gradient(140deg, #15665e, #ff5e5b);
+      --text-color: var(--contrast-grey);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --hover-shadow: rgba(0, 0, 0, 0.15);
+    }
 
-        /* Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
+    /* Typography */
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
 
-        body {
-            font-family: 'Rajdhani', sans-serif;
-            background: var(--background-gradient);
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            animation: fadeIn 1.5s ease-in-out;
-            transition: background 0.5s, color 0.5s;
-        }
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--background-gradient);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      animation: fadeIn 1.5s ease-in-out;
+      transition: background 0.5s, color 0.5s;
+    }
 
-        /* Smooth Fade-in */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-        /* Dark Mode */
-        .dark-mode {
-            --background-gradient: linear-gradient(140deg, #222, #444);
-            --text-color: white;
-            --card-bg: rgba(40, 40, 40, 0.9);
-            --hover-shadow: rgba(255, 255, 255, 0.15);
-        }
+    /* Dark Mode */
+    .dark-mode {
+      --background-gradient: linear-gradient(140deg, #222, #444);
+      --text-color: #ffffff;
+      --card-bg: rgba(40, 40, 40, 0.9);
+      --hover-shadow: rgba(255, 255, 255, 0.15);
+    }
 
-        /* Top Banner */
-        header {
-            background: #333333;
-            color: white;
-            padding: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 8px var(--hover-shadow);
-        }
+    /* Top Banner */
+    header {
+      background: #333333;
+      color: white;
+      padding: 15px;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px var(--hover-shadow);
+    }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-        }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+    }
 
-        .logo .phy { color: var(--phy-green); }
-        .logo .calix { color: var(--calix-orange); }
+    .logo .phy { color: var(--phy-green); }
+    .logo .calix { color: var(--calix-orange); }
 
-        /* Love Text */
-        .love-text {
-            font-family: 'Nunito', sans-serif;
-            font-size: 14px; 
-            font-style: italic;
-            color: white;
-            margin-top: 7px;
-            letter-spacing: 1px;
-            opacity: 0.8;
-        }
+    .love-text {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-style: italic;
+      color: white;
+      margin-top: 7px;
+      letter-spacing: 1px;
+      opacity: 0.8;
+    }
 
-        .container {
-            max-width: 850px;
-            margin: 30px auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0px 6px 15px var(--hover-shadow);
-            transition: transform 0.2s;
-        }
+    /* Navigation Bar */
+    .site-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
 
-        .container:hover {
-            transform: translateY(-5px);
-        }
+    .site-nav ul li a {
+      text-decoration: none;
+      color: var(--phy-green);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        h1 { color: var(--phy-green); font-size: 28px; margin-bottom: 10px; }
-        p { font-size: 18px; line-height: 1.6; }
-        .highlight { color: var(--calix-orange); font-weight: bold; }
+    .site-nav ul li a:hover {
+      color: var(--calix-orange);
+    }
 
-        .image-container { margin-top: 20px; animation: fadeIn 1.5s ease-in-out; }
-        img { max-width: 100%; border-radius: 15px; box-shadow: 0px 4px 10px var(--hover-shadow); }
+    /* Main Container */
+    .container {
+      max-width: 850px;
+      margin: 30px auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px var(--hover-shadow);
+      transition: transform 0.2s;
+    }
 
-        /* Divider */
-        .divider {
-            width: 50px;
-            height: 4px;
-            background: var(--calix-orange);
-            margin: 20px auto;
-            border-radius: 2px;
-        }
+    .container:hover {
+      transform: translateY(-5px);
+    }
 
-        /* Fields */
-        .fields {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
+    h1 { color: var(--phy-green); font-size: 28px; margin-bottom: 10px; }
+    p { font-size: 18px; line-height: 1.6; }
+    .highlight { color: var(--calix-orange); font-weight: bold; }
 
-        .field {
-            background: var(--phy-green);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 3px 6px var(--hover-shadow);
-            transition: transform 0.2s, background 0.3s;
-        }
+    .fields {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
 
-        .field:hover {
-            transform: translateY(-5px);
-            background: var(--calix-orange);
-        }
+    .field {
+      background: var(--phy-green);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 3px 6px var(--hover-shadow);
+      transition: transform 0.2s, background 0.3s;
+    }
 
-        /* Bullet Points */
-        .bullet-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            padding: 20px;
-        }
+    .field:hover {
+      transform: translateY(-5px);
+      background: var(--calix-orange);
+    }
 
-        .bullet-point {
-            background: var(--phy-green);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 3px 6px var(--hover-shadow);
-            transition: background 0.3s, transform 0.3s;
-            cursor: pointer;
-        }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: var(--phy-green);
+      color: white;
+      font-size: 14px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
 
-        .bullet-point:hover {
-            background: var(--calix-orange);
-            transform: translateY(-5px);
-        }
+    /* Dark Mode Toggle Button */
+    .toggle-dark {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: var(--calix-orange);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px var(--hover-shadow);
+      transition: background 0.3s, transform 0.2s;
+    }
 
-        @media (max-width: 768px) {
-            .bullet-container { grid-template-columns: 1fr; }
-        }
+    .toggle-dark:hover {
+      background: var(--phy-green);
+      transform: scale(1.1);
+    }
 
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: var(--phy-green);
-            color: white;
-            font-size: 14px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
+    /* Topic Section Styling */
+    .topic-section {
+      margin: 40px auto;
+      padding: 30px;
+      max-width: 850px;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px var(--hover-shadow);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
 
-        /* Dark Mode Button */
-        .toggle-dark {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background: var(--calix-orange);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px var(--hover-shadow);
-            transition: background 0.3s, transform 0.2s;
-        }
+    .topic-section h2 {
+      color: var(--phy-green);
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-        .toggle-dark:hover {
-            background: var(--phy-green);
-            transform: scale(1.1);
-        }
-    </style>
+    .topic-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .topic-icon {
+      width: 50px;
+      height: 50px;
+    }
+
+    .topic-image {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px var(--hover-shadow);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .site-nav ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <button class="toggle-dark" onclick="toggleDarkMode()">Dark Mode</button>
 
-    <button class="toggle-dark" onclick="toggleDarkMode()">Dark Mode</button>
+  <header>
+    <span class="logo">
+      <span class="phy">Phy</span><span class="calix">Calix</span>
+    </span>
+    <div class="love-text">- For the love of Microalgae -</div>
+  </header>
 
-    <header>
-        <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span>
-        <div class="love-text">- For the love of Microalgae -</div>
-    </header>
+  <nav class="site-nav">
+    <ul>
+      <li><a href="#microalgae">Microalgae</a></li>
+      <li><a href="#innovation">Innovation</a></li>
+      <li><a href="#biotech">Biotech</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-        <h1>Shaping the Future of Microalgae</h1>
-        <p>At <span class="highlight">PhyCalix</span>, we pioneer biotechnology innovations using microalgae.</p>
-        <div class="divider"></div>
-        <div class="fields">
-            <div class="field">Cosmetics</div>
-            <div class="field">Nutrition</div>
-            <div class="field">Lifestyle</div>
-            <div class="field">Pharmaceuticals</div>
-        </div>
+  <div class="container">
+    <h1>Shaping the Future of Microalgae</h1>
+    <p>
+      At <span class="highlight">PhyCalix</span> we pioneer biotechnology innovations using microalgae to transform industries—from nutrition to pharmaceuticals.
+    </p>
+    <div class="fields">
+      <div class="field">Cosmetics</div>
+      <div class="field">Nutrition</div>
+      <div class="field">Lifestyle</div>
+      <div class="field">Pharmaceuticals</div>
     </div>
+  </div>
 
-    <footer>© 2025 PhyCalix. All rights reserved.</footer>
+  <!-- Topic Section: Microalgae -->
+  <section id="microalgae" class="topic-section">
+    <h2>Exploring Microalgae</h2>
+    <div class="topic-content">
+      <img class="topic-icon" src="assets/icon_microalgae.svg" alt="Microalgae Icon" />
+      <!-- Free image regarding microalgae research (license free) -->
+      <img
+        class="topic-image"
+        src="assets/microalgae.jpg"
+        alt="Microalgae Research Image"
+        loading="lazy"
+      />
+      <p>
+        Microalgae play a crucial role in sustainable biotechnology—driving innovations in nutrition, environmental solutions, and renewable energy.
+      </p>
+    </div>
+  </section>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
+  <!-- Topic Section: Innovation -->
+  <section id="innovation" class="topic-section">
+    <h2>Driving Innovation</h2>
+    <div class="topic-content">
+      <img class="topic-icon" src="assets/icon_innovation.svg" alt="Innovation Icon" />
+      <!-- Free image regarding innovation in biotech (license free) -->
+      <img
+        class="topic-image"
+        src="assets/innovation.jpg"
+        alt="Innovation in Biotechnology"
+        loading="lazy"
+      />
+      <p>
+        Innovation fuels our passion—every breakthrough paves the way for a confluence of technology and nature to deliver cutting-edge solutions.
+      </p>
+    </div>
+  </section>
 
+  <!-- Topic Section: Biotech -->
+  <section id="biotech" class="topic-section">
+    <h2>Biotechnological Advances</h2>
+    <div class="topic-content">
+      <img class="topic-icon" src="assets/icon_biotech.svg" alt="Biotech Icon" />
+      <!-- Free image regarding biotech research (license free) -->
+      <img
+        class="topic-image"
+        src="assets/biotech.jpg"
+        alt="Advanced Biotechnology Image"
+        loading="lazy"
+      />
+      <p>
+        Cutting-edge biotechnological advances allow us to harness the potential of nature for sustainable health, energy, and environmental innovations.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 PhyCalix. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
 </body>
 </html>
