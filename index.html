@@ -18,7 +18,7 @@
 
         /* Typography */
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap'); /* Changed to Nunito for better readability */
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -28,16 +28,26 @@
             padding: 0;
             color: var(--text-color);
             animation: fadeIn 1.5s ease-in-out;
+            transition: background 0.5s, color 0.5s;
         }
 
+        /* Smooth Fade-in */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        /* Top Banner Style */
+        /* Dark Mode */
+        .dark-mode {
+            --background-gradient: linear-gradient(140deg, #222, #444);
+            --text-color: white;
+            --card-bg: rgba(40, 40, 40, 0.9);
+            --hover-shadow: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Top Banner */
         header {
-            background: #333333; /* Grau */
+            background: #333333;
             color: white;
             padding: 15px;
             font-size: 22px;
@@ -53,17 +63,12 @@
             color: white;
         }
 
-        .logo .phy {
-            color: var(--phy-green); /* Grün für "Phy" */
-        }
+        .logo .phy { color: var(--phy-green); }
+        .logo .calix { color: var(--calix-orange); }
 
-        .logo .calix {
-            color: var(--calix-orange); /* Orange für "Calix" */
-        }
-
-        /* New Font for "For the love of Microalgae" */
+        /* Love Text */
         .love-text {
-            font-family: 'Nunito', sans-serif; /* Changed to Nunito */
+            font-family: 'Nunito', sans-serif;
             font-size: 14px; 
             font-style: italic;
             color: white;
@@ -79,36 +84,21 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0px 6px 15px var(--hover-shadow);
+            transition: transform 0.2s;
         }
 
-        h1 {
-            color: var(--phy-green);
-            font-size: 28px;
-            margin-bottom: 10px;
+        .container:hover {
+            transform: translateY(-5px);
         }
 
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+        h1 { color: var(--phy-green); font-size: 28px; margin-bottom: 10px; }
+        p { font-size: 18px; line-height: 1.6; }
+        .highlight { color: var(--calix-orange); font-weight: bold; }
 
-        .highlight {
-            color: var(--calix-orange);
-            font-weight: bold;
-        }
+        .image-container { margin-top: 20px; animation: fadeIn 1.5s ease-in-out; }
+        img { max-width: 100%; border-radius: 15px; box-shadow: 0px 4px 10px var(--hover-shadow); }
 
-        .image-container {
-            margin-top: 20px;
-            position: relative;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px var(--hover-shadow);
-        }
-
+        /* Divider */
         .divider {
             width: 50px;
             height: 4px;
@@ -117,6 +107,7 @@
             border-radius: 2px;
         }
 
+        /* Fields */
         .fields {
             display: flex;
             justify-content: center;
@@ -141,28 +132,8 @@
             background: var(--calix-orange);
         }
 
-        .vision {
-            margin-top: 40px;
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--phy-green);
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: var(--phy-green);
-            color: white;
-            font-size: 14px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-
-        /* Bullet Points Style */
+        /* Bullet Points */
         .bullet-container {
-            margin-top: 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -186,15 +157,45 @@
             transform: translateY(-5px);
         }
 
-        /* Ensuring Bullet Points fit on smaller screens */
         @media (max-width: 768px) {
-            .bullet-container {
-                grid-template-columns: 1fr; /* Stack bullet points for mobile */
-            }
+            .bullet-container { grid-template-columns: 1fr; }
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--phy-green);
+            color: white;
+            font-size: 14px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        /* Dark Mode Button */
+        .toggle-dark {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background: var(--calix-orange);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px var(--hover-shadow);
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .toggle-dark:hover {
+            background: var(--phy-green);
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
+
+    <button class="toggle-dark" onclick="toggleDarkMode()">Dark Mode</button>
 
     <header>
         <span class="logo"><span class="phy">Phy</span><span class="calix">Calix</span></span>
@@ -203,50 +204,23 @@
 
     <div class="container">
         <h1>Shaping the Future of Microalgae</h1>
-        <p>At <span class="logo" style="font-size: 18px;"><span class="phy">Phy</span><span class="calix">Calix</span></span> we pioneer the next generation of biotechnology, leveraging the versatility of microalgae to transform multiple industries.</p>
-
+        <p>At <span class="highlight">PhyCalix</span>, we pioneer biotechnology innovations using microalgae.</p>
         <div class="divider"></div>
-
-        <div class="image-container">
-            <img src="assets/ceo_image.jpeg" alt="PhyCalix CEO working on next-gen biotechnology">
-        </div>
-
-        <p>Our CEO is at the forefront of developing groundbreaking solutions, bridging the gap between <span class="highlight">nature</span> and <span class="highlight">cutting-edge biotechnology</span>.</p>
-
-        <div class="divider"></div>
-
-        <h2>Our Vision and Values</h2>
-        <div class="bullet-container">
-            <div class="bullet-point">Driven by passion, powered by science</div>
-            <div class="bullet-point">Shaping the Future with cutting-edge microalgae innovations</div>
-            <div class="bullet-point">Disrupting industries with next-gen biotechnology</div>
-            <div class="bullet-point">Transforming microalgae into high-value solutions</div>
-            <div class="bullet-point">Sustainable, scalable, and revolutionary</div>
-            <div class="bullet-point">The next frontier in food, wellness, and beyond</div>
-        </div>
-
-        <div class="divider"></div>
-
-        <h2>Versatile as Nature Itself</h2>
-        <p>Just like microalgae, we adapt and innovate across multiple industries:</p>
-
         <div class="fields">
             <div class="field">Cosmetics</div>
             <div class="field">Nutrition</div>
             <div class="field">Lifestyle</div>
             <div class="field">Pharmaceuticals</div>
         </div>
-
-        <div class="divider"></div>
-
-        <p class="vision">Harnessing the power of microalgae to build a <span class="highlight">healthier, more sustainable</span> future.</p>
     </div>
 
-    <footer>
-        © 2025 PhyCalix. All rights reserved.
-    </footer>
+    <footer>© 2025 PhyCalix. All rights reserved.</footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 
 </body>
 </html>
-
-<script src="assets/typingEffect.js"></script>
