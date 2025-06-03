@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phycalix - Innovative Microalgae Products</title>
+    <title>Phycalix - Innovative Microalgae Solutions</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/svg+xml" href="assets/phycalix_logo.svg">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="assets/site.webmanifest">
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,16 +15,14 @@
     <style>
         /* Color Palette */
         :root {
-            --phy-green: #2E8B57; /* Sea Green - Sophisticated Green */
-            --phy-light-green: #90EE90; /* Light Green - subtle accent */
-            --phy-white: #F9F9F9; /* Off-white for clean backgrounds */
-            --phy-gray: #333333; /* Dark gray for text and accents */
-            --phy-light-gray: #E0E0E0; /* Light gray for subtle dividers/borders */
-            --phy-text-color: var(--phy-gray);
-            --phy-hero-bg: linear-gradient(180deg, #F9F9F9, #E0E0E0);
-            --phy-card-bg: #FFFFFF;
-            --phy-shadow: rgba(0, 0, 0, 0.08);
-            --phy-hover-shadow: rgba(0, 0, 0, 0.15);
+            --phy-white: #FFFFFF; /* Pure White */
+            --phy-dark-accent: #333333; /* Dark Gray for accents and text */
+            --phy-light-gray: #F0F0F0; /* Very light gray for subtle backgrounds/dividers */
+            --phy-text-color: var(--phy-dark-accent);
+            --phy-hero-bg: var(--phy-white);
+            --phy-card-bg: var(--phy-white);
+            --phy-shadow: rgba(0, 0, 0, 0.03); /* Even lighter shadow */
+            --phy-hover-shadow: rgba(0, 0, 0, 0.08); /* Lighter hover shadow */
         }
 
         /* Base Styles */
@@ -42,24 +39,29 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            color: var(--phy-gray);
+            color: var(--phy-dark-accent); /* All headings use dark accent */
             margin-top: 0;
         }
 
         h1 {
             font-size: 3.5em;
-            color: var(--phy-green);
+            line-height: 1.1;
             margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: var(--phy-dark-accent); /* No green accent here */
         }
 
         h2 {
@@ -76,31 +78,32 @@
             bottom: -15px;
             transform: translateX(-50%);
             width: 60px;
-            height: 3px;
-            background-color: var(--phy-light-green);
-            border-radius: 2px;
+            height: 2px; /* Thinner line */
+            background-color: var(--phy-dark-accent); /* Dark accent line */
+            border-radius: 1px;
         }
 
         p {
             font-size: 1.1em;
             margin-bottom: 1em;
+            color: var(--phy-text-color);
         }
 
         a {
-            color: var(--phy-green);
+            color: var(--phy-dark-accent); /* Links use dark accent */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--phy-light-green);
+            opacity: 0.7; /* Subtle hover effect */
         }
 
         /* Header */
         header {
             background-color: var(--phy-white);
             padding: 15px 0;
-            box-shadow: 0 2px 10px var(--phy-shadow);
+            box-shadow: 0 1px 3px var(--phy-shadow); /* Even lighter shadow */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -113,9 +116,14 @@
         }
 
         .logo img {
-            height: 50px; /* Adjust as needed */
+            height: 45px;
             width: auto;
             display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -126,13 +134,13 @@
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 35px;
         }
 
         nav ul li a {
             font-weight: 600;
-            font-size: 1.1em;
-            color: var(--phy-gray);
+            font-size: 1em;
+            color: var(--phy-dark-accent);
             position: relative;
             padding-bottom: 5px;
         }
@@ -144,7 +152,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--phy-green);
+            background-color: var(--phy-dark-accent); /* Dark accent underline */
             transition: width 0.3s ease;
         }
 
@@ -156,68 +164,89 @@
         .hero {
             background: var(--phy-hero-bg);
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0 80px;
             animation: fadeIn 1.5s ease-in-out;
+            position: relative;
         }
 
         .hero h1 {
-            font-size: 4.5em;
-            line-height: 1.1;
-            margin-bottom: 25px;
-            color: var(--phy-gray);
-        }
-
-        .hero h1 span {
-            color: var(--phy-green);
+            font-size: 4em;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
         }
 
         .hero p {
-            font-size: 1.4em;
+            font-size: 1.3em;
             max-width: 700px;
-            margin: 0 auto 40px auto;
-            color: var(--phy-gray);
+            margin: 0 auto 50px auto;
         }
 
         .hero-buttons .btn {
             display: inline-block;
-            background-color: var(--phy-green);
+            background-color: var(--phy-dark-accent); /* Buttons use dark accent */
             color: var(--phy-white);
-            padding: 15px 30px;
+            padding: 15px 35px;
             border-radius: 5px;
             font-size: 1.1em;
             font-weight: 600;
-            margin: 0 10px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 0 15px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px var(--phy-shadow);
         }
 
         .hero-buttons .btn:hover {
-            background-color: var(--phy-light-green);
+            background-color: #555555; /* Slightly lighter dark accent on hover */
             transform: translateY(-3px);
             box-shadow: 0 6px 12px var(--phy-hover-shadow);
         }
 
+        /* Large Logo Section */
+        .large-logo-section {
+            background-color: var(--phy-dark-accent); /* Dark background for logo */
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .large-logo {
+            max-width: 350px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1)); /* Subtle white shadow for the SVG */
+            animation: bounceIn 1.5s ease-out forwards;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.1); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            80% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
         /* Section Styling */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--phy-white);
             position: relative;
             overflow: hidden;
         }
 
-        section:nth-of-type(odd) {
-            background-color: var(--phy-white);
+        section:nth-of-type(even) { /* Apply light gray to alternate sections for subtle distinction */
+            background-color: var(--phy-light-gray);
         }
 
         /* About/Values Section */
         .about-content {
             display: flex;
-            align-items: center;
-            gap: 50px;
+            align-items: flex-start;
+            gap: 60px;
+            margin-bottom: 80px;
         }
 
         .about-text {
-            flex: 1;
+            flex: 2;
         }
 
         .about-image {
@@ -228,8 +257,8 @@
         .about-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px var(--phy-shadow);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px var(--phy-shadow);
             transition: transform 0.3s ease;
         }
 
@@ -239,7 +268,7 @@
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
@@ -247,95 +276,38 @@
         .value-item {
             background-color: var(--phy-card-bg);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--phy-shadow);
+            border-radius: 8px;
+            box-shadow: 0 3px 12px var(--phy-shadow);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .value-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px var(--phy-hover-shadow);
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--phy-hover-shadow);
         }
 
         .value-item h3 {
-            color: var(--phy-green);
-            font-size: 1.6em;
-            margin-bottom: 15px;
-        }
-
-        .value-item p {
-            font-size: 1em;
-            color: var(--phy-gray);
-        }
-
-        /* Product Highlights */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background-color: var(--phy-card-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px var(--phy-shadow);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px var(--phy-hover-shadow);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-info h3 {
-            font-size: 1.8em;
-            color: var(--phy-green);
+            color: var(--phy-dark-accent);
+            font-size: 1.5em;
             margin-bottom: 10px;
         }
 
-        .product-info p {
-            font-size: 1em;
-            color: var(--phy-gray);
-            margin-bottom: 15px;
-        }
-
-        .product-info .btn {
-            background-color: var(--phy-light-green);
-            color: var(--phy-gray);
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .product-info .btn:hover {
-            background-color: var(--phy-green);
-            color: var(--phy-white);
+        .value-item p {
+            font-size: 0.95em;
+            color: var(--phy-text-color);
         }
 
         /* Contact Section */
         .contact-content {
             text-align: center;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .contact-content p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1.1em;
+            margin-bottom: 40px;
         }
 
         .contact-form {
@@ -346,59 +318,60 @@
 
         .contact-form input,
         .contact-form textarea {
-            width: 100%;
+            width: calc(100% - 30px);
             padding: 15px;
-            border: 1px solid var(--phy-light-gray);
+            border: 1px solid var(--phy-light-gray); /* Light gray border */
             border-radius: 5px;
             font-size: 1em;
             font-family: 'Montserrat', sans-serif;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.2s ease;
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: var(--phy-green);
+            border-color: var(--phy-dark-accent); /* Dark accent on focus */
+            box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.1); /* Subtle dark focus ring */
         }
 
         .contact-form textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
         }
 
         .contact-form button {
-            background-color: var(--phy-green);
+            background-color: var(--phy-dark-accent);
             color: var(--phy-white);
-            padding: 15px 30px;
+            padding: 15px 40px;
             border: none;
             border-radius: 5px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px var(--phy-shadow);
         }
 
         .contact-form button:hover {
-            background-color: var(--phy-light-green);
+            background-color: #555555; /* Slightly lighter dark accent on hover */
             transform: translateY(-3px);
             box-shadow: 0 6px 12px var(--phy-hover-shadow);
         }
 
         /* Footer */
         footer {
-            background-color: var(--phy-gray);
+            background-color: var(--phy-dark-accent); /* Dark accent background */
             color: var(--phy-white);
             text-align: center;
-            padding: 40px 0;
-            font-size: 0.9em;
+            padding: 30px 0;
+            font-size: 0.85em;
         }
 
         footer .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         footer nav ul {
@@ -409,7 +382,7 @@
         }
 
         footer nav ul li {
-            margin: 0 15px;
+            margin: 0 12px;
         }
 
         footer nav ul li a {
@@ -418,24 +391,13 @@
         }
 
         footer nav ul li a:hover {
-            color: var(--phy-light-green);
+            opacity: 0.7; /* Subtle hover effect */
         }
 
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .animate-on-scroll {
@@ -449,27 +411,27 @@
             transform: translateY(0);
         }
 
-
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
             h1 {
-                font-size: 3em;
+                font-size: 3.2em;
             }
 
             h2 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .about-content {
                 flex-direction: column;
+                gap: 40px;
             }
 
             .about-image {
-                margin-top: 30px;
+                order: -1;
             }
 
-            .values-grid, .product-grid {
-                grid-template-columns: 1fr;
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
         }
 
@@ -489,7 +451,7 @@
             }
 
             .hero {
-                padding: 80px 0 60px;
+                padding: 60px 0;
             }
 
             .hero h1 {
@@ -497,45 +459,64 @@
             }
 
             .hero p {
-                font-size: 1.2em;
+                font-size: 1.1em;
                 margin-bottom: 30px;
             }
 
             .hero-buttons .btn {
-                width: 80%;
+                width: 90%;
                 margin: 10px auto;
                 display: block;
             }
 
             section {
-                padding: 60px 0;
+                padding: 70px 0;
             }
 
             h2 {
                 font-size: 1.8em;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
             }
 
-            .product-card img {
-                height: 180px;
+            .large-logo-section {
+                padding: 60px 0;
+            }
+
+            .large-logo {
+                max-width: 280px;
             }
         }
 
         @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
             h1 {
                 font-size: 2em;
             }
 
-            .hero p {
-                font-size: 1em;
+            h2 {
+                font-size: 1.5em;
             }
 
-            .value-item, .product-card {
+            .hero p {
+                font-size: 0.95em;
+            }
+
+            .value-item {
                 padding: 20px;
             }
 
-            .product-info h3 {
-                font-size: 1.5em;
+            .large-logo {
+                max-width: 200px;
+            }
+
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form button {
+                padding: 12px;
+                font-size: 0.9em;
             }
         }
     </style>
@@ -549,7 +530,6 @@
             <nav>
                 <ul>
                     <li><a href="#about">About Us</a></li>
-                    <li><a href="#products">Products</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -559,22 +539,28 @@
     <main>
         <section class="hero" id="home">
             <div class="container">
-                <h1>Harnessing the Power of <span>Microalgae</span></h1>
-                <p>Phycalix pioneers sustainable, cutting-edge solutions by transforming microalgae into high-value products for a healthier and more sustainable future.</p>
+                <h1>Leading the Way in Sustainable <span>Microalgae Innovation</span></h1>
+                <p>Phycalix harnesses the power of microalgae to create groundbreaking, high-value solutions for a healthier, more sustainable future.</p>
                 <div class="hero-buttons">
-                    <a href="#products" class="btn">Explore Products</a>
+                    <a href="#about" class="btn">Learn More</a>
                     <a href="#contact" class="btn">Get in Touch</a>
                 </div>
             </div>
         </section>
 
+        <section class="large-logo-section">
+            <div class="container">
+                <img src="assets/phycalix_logo.svg" alt="Large Phycalix Logo" class="large-logo">
+            </div>
+        </section>
+
         <section id="about">
             <div class="container">
-                <h2>About Phycalix</h2>
+                <h2>Our Vision</h2>
                 <div class="about-content">
                     <div class="about-text animate-on-scroll">
-                        <p>At **Phycalix**, we are driven by a singular mission: to unlock the immense potential of microalgae. Our biotechnology startup combines **scientific precision** with **natural harmony** to create innovative products that redefine industries.</p>
-                        <p>We believe in **sustainable innovation**, developing solutions that are not only groundbreaking but also environmentally responsible. Our commitment to **modern aesthetics** ensures our products and processes are as elegant as they are effective.</p>
+                        <p>**Phycalix** is where cutting-edge **biotechnology** meets the profound potential of **microalgae**. We are a biotech startup dedicated to pioneering sustainable, innovative products that are grounded in **scientific precision** and respect **natural harmony**.</p>
+                        <p>Our work transforms nature's smallest powerhouses into solutions that benefit diverse industries, always with a focus on **sustainability, scalability, and impact**. We believe in **elegant design** and clean aesthetics, reflecting the purity and precision of our science.</p>
                     </div>
                     <div class="about-image animate-on-scroll">
                         <img src="assets/about_us_lab.jpg" alt="Phycalix scientists working in a modern lab with microalgae cultures.">
@@ -582,52 +568,20 @@
                 </div>
                 <div class="values-grid">
                     <div class="value-item animate-on-scroll">
-                        <h3>Innovation</h3>
-                        <p>Pushing the boundaries of biotechnology with novel microalgae applications.</p>
+                        <h3>Innovation Driven</h3>
+                        <p>Continuously exploring new frontiers in microalgae applications.</p>
                     </div>
                     <div class="value-item animate-on-scroll">
-                        <h3>Natural Harmony</h3>
-                        <p>Leveraging nature's power in a way that respects and nurtures our planet.</p>
+                        <h3>Sustainable Core</h3>
+                        <p>Developing solutions that are environmentally responsible and future-proof.</p>
                     </div>
                     <div class="value-item animate-on-scroll">
-                        <h3>Scientific Precision</h3>
-                        <p>Ensuring efficacy and safety through rigorous research and development.</p>
+                        <h3>Precision Science</h3>
+                        <p>Ensuring efficacy and quality through rigorous, data-driven research.</p>
                     </div>
                     <div class="value-item animate-on-scroll">
-                        <h3>Modern Aesthetics</h3>
-                        <p>Combining functional excellence with elegant, user-centric design.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="products">
-            <div class="container">
-                <h2>Our Innovative Products</h2>
-                <div class="product-grid">
-                    <div class="product-card animate-on-scroll">
-                        <img src="assets/product_nutrition.jpg" alt="Nutritional supplements derived from microalgae">
-                        <div class="product-info">
-                            <h3>Nutritional Enhancements</h3>
-                            <p>Discover our range of superfood supplements packed with essential nutrients from microalgae.</p>
-                            <a href="#" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="product-card animate-on-scroll">
-                        <img src="assets/product_cosmetics.jpg" alt="Cosmetic products with microalgae ingredients">
-                        <div class="product-info">
-                            <h3>Sustainable Cosmetics</h3>
-                            <p>Experience the rejuvenating power of microalgae in our natural skincare and beauty line.</p>
-                            <a href="#" class="btn">Learn More</a>
-                        </div>
-                    </div>
-                    <div class="product-card animate-on-scroll">
-                        <img src="assets/product_biofuel.jpg" alt="Microalgae-based biofuel">
-                        <div class="product-info">
-                            <h3>Biofuel Solutions</h3>
-                            <p>Pioneering the future of clean energy with advanced microalgae-derived biofuels.</p>
-                            <a href="#" class="btn">Learn More</a>
-                        </div>
+                        <h3>Elegant Design</h3>
+                        <p>Crafting products and processes with clarity and refined aesthetics.</p>
                     </div>
                 </div>
             </div>
@@ -637,7 +591,7 @@
             <div class="container">
                 <h2>Connect With Us</h2>
                 <div class="contact-content animate-on-scroll">
-                    <p>Have a question, partnership inquiry, or just want to learn more about microalgae? We'd love to hear from you!</p>
+                    <p>Interested in our work or exploring partnership opportunities? Send us a message and let's shape the future together.</p>
                     <form class="contact-form">
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Your Email" required>
@@ -655,7 +609,6 @@
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#products">Products</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -681,10 +634,12 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Unobserve once animated
+                } else {
+                    // Optional: remove is-visible when element leaves viewport to allow re-animation
+                    // entry.target.classList.remove('is-visible');
                 }
             });
-        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+        }, { threshold: 0.1 });
 
         animateElements.forEach(element => {
             observer.observe(element);
