@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phycalix - Innovative Microalgae Solutions</title>
-    <link rel="icon" type="image/svg+xml" href="assets/designelement.svg">
+    
+    <link rel="icon" type="image/svg+xml" href="assets/designelement.svg" sizes="any">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="assets/site.webmanifest">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -142,7 +142,6 @@
             100% { background-position: 100% 100%; }
         }
 
-
         .logo-banner img {
             max-width: 80%; /* 80% of banner width */
             max-height: 80vh; /* 80% of viewport height */
@@ -152,6 +151,16 @@
             filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.5)); /* Darker shadow for more depth on dark background */
             animation: fadeInScale 2.5s ease-out forwards; /* Longer, more dramatic animation */
             display: block;
+            /* NEUE EIGENSCHAFTEN FÜR ABGERUNDETE ECKEN */
+            border-radius: 30px; /* Stärker abgerundete Ecken */
+            /* Wenn das SVG Transparenz hat, könnte 'overflow: hidden' in einem Container helfen.
+               Aber für die Rundung des SVG-Inhalts selbst ist ein Masken-Ansatz besser. */
+            -webkit-mask-image: -webkit-radial-gradient(white, black); /* For Webkit browsers (Chrome, Safari) */
+            mask-image: radial-gradient(white, black); /* Standard property */
+            /* Die Maskierung erzeugt eine scharfe Maske. Für weichere Rundungen am SVG ist
+               es besser, das SVG direkt zu bearbeiten. 'border-radius' wirkt auf die Box.
+               Alternativ können wir einen überlappenden Container nutzen, aber das ist komplexer.
+               Ich lasse 'border-radius' hier, es rundet den "bounding box" des Logos ab. */
         }
 
         @keyframes fadeInScale {
