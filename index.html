@@ -123,7 +123,12 @@
             position: relative;
             z-index: 1; /* Ensure it's above potential background patterns */
         }
-
+        @media (max-width: 768px) {
+        .logo-banner {
+            max-width: 50vw;  /* Container auf 50% Viewportbreite */
+            max-height: 40vh; /* Optional auch Höhe anpassen */
+  }
+}
         /* Optional: Subtle background pattern/texture for the banner */
         .logo-banner::before {
             content: '';
