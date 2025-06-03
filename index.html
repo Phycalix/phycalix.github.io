@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         /* Color Palette */
         :root {
@@ -95,26 +95,40 @@
             opacity: 0.7;
         }
 
+        /* Custom Bold Green for specific text */
+        .bold-green {
+            font-weight: 700; /* Explicitly set font-weight for bold */
+            color: var(--phy-primary-green); /* Apply green color */
+        }
+
+
         /* Full-width Logo Banner */
         .logo-banner {
-            width: 100%;
-            padding: 80px 0; /* Vertical padding for the banner */
+            width: 100vw; /* Take full viewport width */
+            height: 100vh; /* Take full viewport height */
+            padding: 0; /* Remove padding as it's now fullscreen */
             background-color: var(--phy-primary-green); /* Green background for the banner */
-            text-align: center;
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Hide anything that goes beyond boundaries */
         }
 
         .logo-banner img {
-            max-width: 450px; /* Very large logo */
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2)); /* Subtle white glow for the SVG */
-            animation: fadeInScale 1.5s ease-out forwards;
+            max-width: 90%; /* Allow logo to take up to 90% of the banner width */
+            max-height: 90%; /* Allow logo to take up to 90% of the banner height */
+            width: auto; /* Maintain aspect ratio */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: contain; /* Ensure the entire logo is visible */
+            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.3)); /* Stronger white glow for the large SVG */
+            animation: fadeInScale 2s ease-out forwards; /* Longer animation for dramatic effect */
             display: block;
-            margin: 0 auto;
+            margin: 0 auto; /* Center it just in case */
         }
 
         @keyframes fadeInScale {
-            0% { transform: scale(0.8); opacity: 0; }
+            0% { transform: scale(0.7); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
@@ -133,14 +147,14 @@
 
         .aspect-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for fewer items */
-            gap: 40px; /* More space between aspects */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
             margin-top: 50px;
         }
 
         .aspect-item {
             background-color: var(--phy-white);
-            padding: 35px; /* More padding */
+            padding: 35px;
             border-radius: 8px;
             box-shadow: 0 3px 10px var(--phy-shadow);
             text-align: center;
@@ -148,12 +162,12 @@
         }
 
         .aspect-item:hover {
-            transform: translateY(-8px); /* More pronounced lift on hover */
+            transform: translateY(-8px);
             box-shadow: 0 8px 20px var(--phy-hover-shadow);
         }
 
         .aspect-item h3 {
-            color: var(--phy-primary-green); /* Green title for aspects */
+            color: var(--phy-primary-green);
             font-size: 1.6em;
             margin-bottom: 15px;
         }
@@ -163,68 +177,70 @@
             color: var(--phy-text-color);
         }
 
-        /* CEO Image Specific Styling */
+        /* CEO Section Specific Styling */
         .ceo-section {
-            background-color: var(--phy-light-gray); /* Subtle background for distinction */
+            background-color: var(--phy-light-gray);
             padding: 60px 0;
             text-align: center;
         }
 
         .ceo-section h2 {
-            color: var(--phy-dark-accent); /* Dark accent for CEO section heading */
+            color: var(--phy-dark-accent);
         }
 
         .ceo-content {
             display: flex;
-            flex-direction: column; /* Stack image and text by default */
+            flex-direction: column;
             align-items: center;
             gap: 30px;
             max-width: 700px;
             margin: 0 auto;
+            text-align: left; /* Default text alignment */
         }
 
         .ceo-image-container {
-            flex-shrink: 0; /* Prevent image from shrinking */
-            width: 250px; /* Fixed width for a contained circular image */
-            height: 250px; /* Fixed height for a contained circular image */
-            overflow: hidden; /* Hide parts outside the circle */
-            border-radius: 50%; /* Make it circular */
-            border: 4px solid var(--phy-primary-green); /* Green border for the image */
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 4px solid var(--phy-primary-green);
             box-shadow: 0 8px 20px var(--phy-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .ceo-image-container:hover {
-            transform: scale(1.03); /* Subtle zoom on hover */
+            transform: scale(1.03);
             box-shadow: 0 10px 25px var(--phy-hover-shadow);
         }
 
         .ceo-image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cover the container without distortion */
+            object-fit: cover;
             display: block;
         }
 
         .ceo-text {
-            text-align: center;
+            text-align: left; /* Ensure text aligns correctly */
         }
 
         .ceo-text h3 {
             color: var(--phy-primary-green);
             font-size: 1.8em;
             margin-bottom: 10px;
+            text-align: center; /* Center align CEO name on all screens */
         }
-
         .ceo-text p {
             font-size: 1.05em;
             color: var(--phy-text-color);
             line-height: 1.7;
+            text-align: left; /* Main bio text left-aligned */
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--phy-white); /* Back to white for contrast */
+            background-color: var(--phy-white);
             padding: 80px 0;
             text-align: center;
         }
@@ -248,7 +264,7 @@
         .contact-form textarea {
             width: calc(100% - 30px);
             padding: 15px;
-            border: 1px solid var(--phy-dark-accent); /* Dark border for input */
+            border: 1px solid var(--phy-dark-accent);
             border-radius: 5px;
             font-size: 1em;
             font-family: 'Montserrat', sans-serif;
@@ -258,7 +274,7 @@
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: var(--phy-primary-green); /* Green focus ring */
+            border-color: var(--phy-primary-green);
             box-shadow: 0 0 0 3px rgba(21, 102, 94, 0.2);
         }
 
@@ -268,7 +284,7 @@
         }
 
         .contact-form button {
-            background-color: var(--phy-primary-green); /* Green button */
+            background-color: var(--phy-primary-green);
             color: var(--phy-white);
             padding: 15px 40px;
             border: none;
@@ -281,7 +297,7 @@
         }
 
         .contact-form button:hover {
-            background-color: #1a8a7f; /* Slightly darker green on hover */
+            background-color: #1a8a7f;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px var(--phy-hover-shadow);
         }
@@ -296,20 +312,20 @@
         }
 
         /* Mobile Responsiveness */
-        @media (min-width: 769px) { /* On larger screens, arrange CEO image and text side-by-side */
+        @media (min-width: 769px) {
             .ceo-content {
                 flex-direction: row;
-                text-align: left; /* Align text left when side-by-side */
             }
 
             .ceo-image-container {
-                margin-right: 40px; /* Space between image and text */
+                margin-right: 40px;
             }
         }
 
         @media (max-width: 992px) {
             .logo-banner img {
-                max-width: 350px;
+                max-width: 80%; /* Adjust for slightly smaller screens */
+                max-height: 80vh;
             }
 
             h1 {
@@ -327,11 +343,11 @@
 
         @media (max-width: 768px) {
             .logo-banner {
-                padding: 60px 0;
+                height: 80vh; /* Adjust height for mobile */
             }
-
             .logo-banner img {
-                max-width: 300px;
+                max-width: 90%;
+                max-height: 70vh;
             }
 
             h1 {
@@ -351,18 +367,25 @@
             }
 
             .ceo-image-container {
-                width: 200px; /* Smaller on mobile */
+                width: 200px;
                 height: 200px;
+            }
+
+            .ceo-text h3 {
+                text-align: center; /* Ensure center alignment for CEO name on mobile */
+            }
+            .ceo-text p {
+                text-align: center; /* Center align all CEO text on mobile */
             }
         }
 
         @media (max-width: 480px) {
             .logo-banner {
-                padding: 40px 0;
+                height: 70vh; /* Further adjust height for small phones */
             }
-
             .logo-banner img {
-                max-width: 250px;
+                max-width: 95%;
+                max-height: 60vh;
             }
 
             h1 {
@@ -389,29 +412,29 @@
 <body>
     <main>
         <section class="logo-banner">
-            <img src="assets/phycalix_logo.svg" alt="Phycalix Logo - Innovative Microalgae Solutions">
+            <img src="image_cd617f.png" alt="Phycalix Logo - Innovative Microalgae Solutions">
         </section>
 
         <section class="key-aspects" id="key-aspects">
             <div class="container">
                 <h2>Shaping the Future with Microalgae</h2>
-                <p>At **Phycalix**, we leverage cutting-edge science to transform microalgae into high-value solutions, driving innovation for a healthier and more sustainable world.</p>
+                <p>At <span class="bold-green">Phycalix</span>, we leverage <span class="bold-green">cutting-edge science</span> to transform microalgae into <span class="bold-green">high-value solutions</span>, driving innovation for a healthier and more sustainable world.</p>
                 <div class="aspect-grid">
                     <div class="aspect-item">
                         <h3>Sustainable Innovation</h3>
-                        <p>Pioneering eco-friendly technologies for a greener tomorrow.</p>
+                        <p>Pioneering <span class="bold-green">eco-friendly technologies</span> for a greener tomorrow.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Scientific Precision</h3>
-                        <p>Driven by rigorous research and advanced biotechnology.</p>
+                        <p>Driven by <span class="bold-green">rigorous research</span> and advanced biotechnology.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Natural Harmony</h3>
-                        <p>Harnessing nature's power in perfect balance.</p>
+                        <p>Harnessing <span class="bold-green">nature's power</span> in perfect balance.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Modern Aesthetics</h3>
-                        <p>Combining functionality with elegant, clean design.</p>
+                        <p>Combining functionality with <span class="bold-green">elegant, clean design</span>.</p>
                     </div>
                 </div>
             </div>
@@ -422,11 +445,11 @@
                 <h2>Meet Our Founder</h2>
                 <div class="ceo-content">
                     <div class="ceo-image-container">
-                        <img src="assets/ceo_image.jpeg" alt="Phycalix CEO, leading microalgae innovation">
+                        <img src="assets/ceo_image.jpeg" alt="Victor Caxala, Founder & CEO of Phycalix">
                     </div>
                     <div class="ceo-text">
-                        <h3>Dr. [CEO Name]</h3> <p>Dr. [CEO Name] is the visionary behind Phycalix, with over 20 years of experience in biotechnology and sustainable development. Their leadership is instrumental in our mission to harness microalgae for a better future.</p>
-                        <p>Their dedication to bridging the gap between **nature's potential** and **cutting-edge science** drives our innovative approach and commitment to excellence.</p>
+                        <h3>Victor Caxala – Founder & CEO of Phycalix</h3>
+                        <p><span class="bold-green">Victor Caxala</span> is a biochemist, entrepreneur, and visionary with a passion for microalgae biotechnology. As the <span class="bold-green">founder and CEO of Phycalix</span>, he combines <span class="bold-green">science, design, and sustainability</span> to create innovative products that have a positive impact on people and the planet. His first product, the microalgae lamp <span class="bold-green">PHYCOlumina</span>, embodies his approach: aesthetic, functional, and future-oriented. With Phycalix, he aims to redefine microalgae as a <span class="bold-green">key technology for nutrition, medicine, and environmental solutions</span>.</p>
                     </div>
                 </div>
             </div>
