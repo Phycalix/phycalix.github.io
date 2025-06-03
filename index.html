@@ -102,26 +102,26 @@
         }
 
 
-        /* Full-width Logo Banner */
+        /* Full-width Logo Banner (Updated for SVG on White) */
         .logo-banner {
             width: 100vw; /* Take full viewport width */
-            height: 100vh; /* Take full viewport height */
-            padding: 0; /* Remove padding as it's now fullscreen */
-            background-color: var(--phy-primary-green); /* Green background for the banner */
+            height: 80vh; /* Take 80% of the viewport height */
+            padding: 0; /* Remove padding */
+            background-color: var(--phy-white); /* White background for the logo */
             display: flex; /* Use flexbox for centering */
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow on the white banner */
             overflow: hidden; /* Hide anything that goes beyond boundaries */
         }
 
         .logo-banner img {
-            max-width: 90%; /* Allow logo to take up to 90% of the banner width */
-            max-height: 90%; /* Allow logo to take up to 90% of the banner height */
+            max-width: 70%; /* Allow logo to take up to 70% of the banner width (relative to 100vw) */
+            max-height: 70vh; /* Allow logo to take up to 70% of the banner height (relative to 80vh) */
             width: auto; /* Maintain aspect ratio */
             height: auto; /* Maintain aspect ratio */
             object-fit: contain; /* Ensure the entire logo is visible */
-            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.3)); /* Stronger white glow for the large SVG */
+            /* Removed drop-shadow as it might not be needed on a white background depending on SVG */
             animation: fadeInScale 2s ease-out forwards; /* Longer animation for dramatic effect */
             display: block;
             margin: 0 auto; /* Center it just in case */
@@ -135,7 +135,7 @@
         /* Key Aspects Section */
         .key-aspects {
             padding: 80px 0;
-            background-color: var(--phy-white);
+            background-color: var(--phy-white); /* Ensures consistent white background */
             text-align: center;
         }
 
@@ -153,7 +153,7 @@
         }
 
         .aspect-item {
-            background-color: var(--phy-white);
+            background-color: var(--phy-white); /* White background for aspect items */
             padding: 35px;
             border-radius: 8px;
             box-shadow: 0 3px 10px var(--phy-shadow);
@@ -167,7 +167,7 @@
         }
 
         .aspect-item h3 {
-            color: var(--phy-primary-green);
+            color: var(--phy-primary-green); /* Green title for aspects */
             font-size: 1.6em;
             margin-bottom: 15px;
         }
@@ -179,7 +179,7 @@
 
         /* CEO Section Specific Styling */
         .ceo-section {
-            background-color: var(--phy-light-gray);
+            background-color: var(--phy-light-gray); /* Subtle background for distinction */
             padding: 60px 0;
             text-align: center;
         }
@@ -204,7 +204,7 @@
             height: 250px;
             overflow: hidden;
             border-radius: 50%;
-            border: 4px solid var(--phy-primary-green);
+            border: 4px solid var(--phy-primary-green); /* Green border for the image */
             box-shadow: 0 8px 20px var(--phy-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -323,9 +323,12 @@
         }
 
         @media (max-width: 992px) {
+            .logo-banner {
+                height: 70vh; /* Adjust height for smaller screens */
+            }
             .logo-banner img {
                 max-width: 80%; /* Adjust for slightly smaller screens */
-                max-height: 80vh;
+                max-height: 60vh; /* Adjusted from 70vh (80% of 70vh is about 56vh) */
             }
 
             h1 {
@@ -343,11 +346,11 @@
 
         @media (max-width: 768px) {
             .logo-banner {
-                height: 80vh; /* Adjust height for mobile */
+                height: 60vh; /* Adjust height for mobile */
             }
             .logo-banner img {
                 max-width: 90%;
-                max-height: 70vh;
+                max-height: 50vh; /* Adjusted from 70vh (80% of 60vh is about 48vh) */
             }
 
             h1 {
@@ -372,20 +375,20 @@
             }
 
             .ceo-text h3 {
-                text-align: center; /* Ensure center alignment for CEO name on mobile */
+                text-align: center;
             }
             .ceo-text p {
-                text-align: center; /* Center align all CEO text on mobile */
+                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
             .logo-banner {
-                height: 70vh; /* Further adjust height for small phones */
+                height: 50vh; /* Further adjust height for small phones */
             }
             .logo-banner img {
                 max-width: 95%;
-                max-height: 60vh;
+                max-height: 40vh; /* Adjusted from 60vh (80% of 50vh is about 40vh) */
             }
 
             h1 {
@@ -412,7 +415,7 @@
 <body>
     <main>
         <section class="logo-banner">
-            <img src="image_cd617f.png" alt="Phycalix Logo - Innovative Microalgae Solutions">
+            <img src="assets/phycalix_logo.svg" alt="Phycalix Logo - Innovative Microalgae Solutions">
         </section>
 
         <section class="key-aspects" id="key-aspects">
