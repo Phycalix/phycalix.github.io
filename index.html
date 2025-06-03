@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         /* Color Palette */
         :root {
@@ -31,7 +32,7 @@
         }
 
         body {
-            font-family: 'Michroma', sans-serif; /* AUF MICHROMA GEÄNDERT */
+            font-family: 'Inter', sans-serif; /* GEÄNDERT AUF INTER */
             color: var(--phy-dark-accent); /* Default text color for light backgrounds */
             margin: 0;
             padding: 0;
@@ -49,7 +50,7 @@
         }
 
         h1, h2, h3 {
-            font-family: 'Michroma', sans-serif; /* AUF MICHROMA GEÄNDERT */
+            font-family: 'Michroma', sans-serif; /* BLEIBT MICHROMA */
             color: var(--phy-white); /* Default heading color for dark backgrounds */
             margin-top: 0;
         }
@@ -81,6 +82,7 @@
         p {
             font-size: 1.1em;
             margin-bottom: 1em;
+            font-family: 'Inter', sans-serif; /* GEÄNDERT AUF INTER */
             color: var(--phy-white); /* Default paragraph color for dark backgrounds */
         }
         
@@ -149,16 +151,9 @@
             filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.5)); /* Darker shadow for more depth on dark background */
             animation: fadeInScale 2.5s ease-out forwards; /* Longer, more dramatic animation */
             display: block;
-            /* NEUE EIGENSCHAFTEN FÜR ABGERUNDETE ECKEN */
             border-radius: 30px; /* Stärker abgerundete Ecken */
-            /* Wenn das SVG Transparenz hat, könnte 'overflow: hidden' in einem Container helfen.
-               Aber für die Rundung des SVG-Inhalts selbst ist ein Masken-Ansatz besser. */
             -webkit-mask-image: -webkit-radial-gradient(white, black); /* For Webkit browsers (Chrome, Safari) */
             mask-image: radial-gradient(white, black); /* Standard property */
-            /* Die Maskierung erzeugt eine scharfe Maske. Für weichere Rundungen am SVG ist
-               es besser, das SVG direkt zu bearbeiten. 'border-radius' wirkt auf die Box.
-               Alternativ können wir einen überlappenden Container nutzen, aber das ist komplexer.
-               Ich lasse 'border-radius' hier, es rundet den "bounding box" des Logos ab. */
         }
 
         @keyframes fadeInScale {
@@ -342,7 +337,7 @@
             color: var(--phy-white); /* White text in inputs */
             border-radius: 5px;
             font-size: 1em;
-            font-family: 'Michroma', sans-serif; /* AUF MICHROMA GEÄNDERT */
+            font-family: 'Inter', sans-serif; /* GEÄNDERT AUF INTER */
             transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.2s ease;
         }
         .contact-form input::placeholder,
@@ -374,7 +369,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px var(--phy-shadow);
-            font-family: 'Michroma', sans-serif; /* AUF MICHROMA GEÄNDERT */
+            font-family: 'Inter', sans-serif; /* GEÄNDERT AUF INTER */
         }
 
         .contact-form button:hover {
@@ -391,7 +386,7 @@
             text-align: center;
             padding: 30px 0;
             font-size: 0.85em;
-            font-family: 'Michroma', sans-serif; /* AUF MICHROMA GEÄNDERT */
+            font-family: 'Inter', sans-serif; /* GEÄNDERT AUF INTER */
         }
 
         /* Mobile Responsiveness */
