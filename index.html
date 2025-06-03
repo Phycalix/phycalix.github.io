@@ -18,10 +18,11 @@
             --phy-white: #FFFFFF; /* Pure White */
             --phy-dark-accent: #333333; /* Dark Gray for accents and text */
             --phy-primary-green: #15665E; /* Specific green as requested */
-            --phy-light-gray: #F5F5F5; /* Very light gray for subtle backgrounds/dividers */
-            --phy-text-color: var(--phy-dark-accent);
-            --phy-shadow: rgba(0, 0, 0, 0.03); /* Even lighter shadow */
-            --phy-hover-shadow: rgba(0, 0, 0, 0.08); /* Lighter hover shadow */
+            --phy-dark-green: #0E4B45; /* A darker shade of green for backgrounds */
+            --phy-light-gray: #E0E0E0; /* Lighter gray for backgrounds */
+            --phy-text-color: var(--phy-white); /* Default text color for dark backgrounds */
+            --phy-shadow: rgba(0, 0, 0, 0.1); /* Slightly stronger shadows for depth */
+            --phy-hover-shadow: rgba(0, 0, 0, 0.2);
         }
 
         /* Base Styles */
@@ -31,10 +32,10 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--phy-text-color);
+            color: var(--phy-dark-accent); /* Default text color for light backgrounds */
             margin: 0;
             padding: 0;
-            background-color: var(--phy-white);
+            background-color: var(--phy-light-gray); /* Overall background is slightly greyed */
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -42,29 +43,27 @@
         }
 
         .container {
-            max-width: 900px; /* Slightly narrower container for tighter focus */
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            color: var(--phy-dark-accent);
+            color: var(--phy-white); /* Default heading color for dark backgrounds */
             margin-top: 0;
         }
 
-        h1 {
-            font-size: 3.8em; /* Slightly larger for impact */
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
         h2 {
-            font-size: 2.5em;
+            font-size: 2.8em; /* Slightly larger heading */
             text-align: center;
             margin-bottom: 50px;
             position: relative;
-            color: var(--phy-primary-green); /* Heading accent with green */
+            color: var(--phy-white); /* Headings in sections on dark backgrounds */
+        }
+        
+        .section-heading-dark { /* For headings on light backgrounds */
+            color: var(--phy-dark-accent);
         }
 
         h2::after {
@@ -73,26 +72,30 @@
             left: 50%;
             bottom: -15px;
             transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
+            width: 80px; /* Wider underline */
+            height: 3px; /* Thicker underline */
             background-color: var(--phy-primary-green); /* Green underline */
-            border-radius: 1px;
+            border-radius: 2px;
         }
 
         p {
             font-size: 1.1em;
             margin-bottom: 1em;
-            color: var(--phy-text-color);
+            color: var(--phy-white); /* Default paragraph color for dark backgrounds */
+        }
+        
+        .section-text-light { /* For paragraphs on light backgrounds */
+            color: var(--phy-dark-accent);
         }
 
         a {
-            color: var(--phy-dark-accent);
+            color: var(--phy-primary-green); /* Links always green */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            opacity: 0.7;
+            color: var(--phy-dark-accent); /* Darker on hover */
         }
 
         /* Custom Bold Green for specific text */
@@ -100,92 +103,151 @@
             font-weight: 700; /* Explicitly set font-weight for bold */
             color: var(--phy-primary-green); /* Apply green color */
         }
-
-
-        /* Full-width Logo Banner (Updated for SVG on White) */
-        .logo-banner {
-            width: 100vw; /* Take full viewport width */
-            height: 80vh; /* Take 80% of the viewport height */
-            padding: 0; /* Remove padding */
-            background-color: var(--phy-white); /* White background for the logo */
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow on the white banner */
-            overflow: hidden; /* Hide anything that goes beyond boundaries */
+        .bold-white { /* For bold text on dark backgrounds */
+            font-weight: 700;
+            color: var(--phy-white);
         }
 
+        /* Full-screen Logo Banner */
+        .logo-banner {
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            padding: 0;
+            background-color: var(--phy-dark-accent); /* Dark background for dramatic effect */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 1; /* Ensure it's above potential background patterns */
+        }
+
+        /* Optional: Subtle background pattern/texture for the banner */
+        .logo-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 1%, transparent 80%), /* Subtle light dots */
+                        linear-gradient(135deg, var(--phy-dark-accent) 0%, var(--phy-primary-green) 100%); /* Diagonal gradient */
+            opacity: 0.2; /* Make it subtle */
+            z-index: -1;
+            animation: backgroundShift 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes backgroundShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+
         .logo-banner img {
-            max-width: 70%; /* Allow logo to take up to 70% of the banner width (relative to 100vw) */
-            max-height: 70vh; /* Allow logo to take up to 70% of the banner height (relative to 80vh) */
-            width: auto; /* Maintain aspect ratio */
-            height: auto; /* Maintain aspect ratio */
-            object-fit: contain; /* Ensure the entire logo is visible */
-            /* Removed drop-shadow as it might not be needed on a white background depending on SVG */
-            animation: fadeInScale 2s ease-out forwards; /* Longer animation for dramatic effect */
+            max-width: 80%; /* 80% of banner width */
+            max-height: 80vh; /* 80% of viewport height */
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 40px rgba(0, 0, 0, 0.5)); /* Darker shadow for more depth on dark background */
+            animation: fadeInScale 2.5s ease-out forwards; /* Longer, more dramatic animation */
             display: block;
-            margin: 0 auto; /* Center it just in case */
         }
 
         @keyframes fadeInScale {
-            0% { transform: scale(0.7); opacity: 0; }
+            0% { transform: scale(0.6); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
 
         /* Key Aspects Section */
         .key-aspects {
-            padding: 80px 0;
-            background-color: var(--phy-white); /* Ensures consistent white background */
+            padding: 100px 0; /* More padding */
+            background: linear-gradient(180deg, var(--phy-dark-green) 0%, var(--phy-primary-green) 100%); /* Green gradient background */
+            color: var(--phy-white); /* White text on green background */
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .key-aspects .container {
+            position: relative;
+            z-index: 2; /* Ensure content is above any background elements */
+        }
+
+        .key-aspects::before { /* Subtle background texture */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMjAwTDIwMCAwSDhMMCA4WiIgZmlsbD0iIzBEMzUzbSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4='); /* Subtle diagonal lines */
+            background-repeat: repeat;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .key-aspects h2, .key-aspects p {
+            color: var(--phy-white);
+        }
+
+        .key-aspects h2::after {
+            background-color: var(--phy-white); /* White underline for green background */
         }
 
         .key-aspects p {
-            font-size: 1.3em;
+            font-size: 1.2em; /* Slightly larger text for impact */
             max-width: 700px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 60px auto; /* More space below paragraph */
         }
 
         .aspect-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller min-width for grid */
+            gap: 30px; /* Slightly less gap */
             margin-top: 50px;
         }
 
         .aspect-item {
-            background-color: var(--phy-white); /* White background for aspect items */
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white card */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+            backdrop-filter: blur(5px); /* Frosted glass effect */
             padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px var(--phy-shadow);
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 5px 20px var(--phy-shadow); /* Stronger shadow */
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
         }
 
         .aspect-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px var(--phy-hover-shadow);
+            transform: translateY(-10px); /* More pronounced lift on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* More opaque on hover */
+            box-shadow: 0 12px 30px var(--phy-hover-shadow);
         }
 
         .aspect-item h3 {
-            color: var(--phy-primary-green); /* Green title for aspects */
-            font-size: 1.6em;
+            color: var(--phy-white); /* White title for aspects on green background */
+            font-size: 1.7em;
             margin-bottom: 15px;
         }
 
         .aspect-item p {
             font-size: 1em;
-            color: var(--phy-text-color);
+            color: var(--phy-white); /* White text inside aspects */
         }
 
         /* CEO Section Specific Styling */
         .ceo-section {
-            background-color: var(--phy-light-gray); /* Subtle background for distinction */
-            padding: 60px 0;
+            background-color: var(--phy-white); /* White background for CEO section */
+            padding: 80px 0;
             text-align: center;
         }
 
         .ceo-section h2 {
-            color: var(--phy-dark-accent);
+            color: var(--phy-dark-accent); /* Dark heading for CEO section */
+        }
+        .ceo-section h2::after {
+            background-color: var(--phy-primary-green); /* Green underline */
         }
 
         .ceo-content {
@@ -195,7 +257,7 @@
             gap: 30px;
             max-width: 700px;
             margin: 0 auto;
-            text-align: left; /* Default text alignment */
+            text-align: left;
         }
 
         .ceo-image-container {
@@ -204,14 +266,14 @@
             height: 250px;
             overflow: hidden;
             border-radius: 50%;
-            border: 4px solid var(--phy-primary-green); /* Green border for the image */
-            box-shadow: 0 8px 20px var(--phy-shadow);
+            border: 5px solid var(--phy-primary-green); /* Thicker green border */
+            box-shadow: 0 10px 25px var(--phy-shadow); /* Stronger shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .ceo-image-container:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px var(--phy-hover-shadow);
+            transform: scale(1.05); /* More pronounced zoom */
+            box-shadow: 0 15px 35px var(--phy-hover-shadow);
         }
 
         .ceo-image-container img {
@@ -222,34 +284,38 @@
         }
 
         .ceo-text {
-            text-align: left; /* Ensure text aligns correctly */
+            text-align: left;
         }
 
         .ceo-text h3 {
-            color: var(--phy-primary-green);
-            font-size: 1.8em;
+            color: var(--phy-primary-green); /* Green name */
+            font-size: 2em; /* Larger name */
             margin-bottom: 10px;
-            text-align: center; /* Center align CEO name on all screens */
+            text-align: center;
         }
         .ceo-text p {
-            font-size: 1.05em;
-            color: var(--phy-text-color);
+            font-size: 1.1em; /* Slightly larger bio text */
+            color: var(--phy-dark-accent); /* Dark text on white background */
             line-height: 1.7;
-            text-align: left; /* Main bio text left-aligned */
+            text-align: left;
         }
 
         /* Contact Section */
         .contact-section {
-            background-color: var(--phy-white);
+            background-color: var(--phy-dark-green); /* Dark green background for contact */
             padding: 80px 0;
             text-align: center;
+            color: var(--phy-white); /* White text on dark green */
         }
 
-        .contact-section .container {
-            max-width: 700px;
+        .contact-section h2 {
+            color: var(--phy-white);
         }
-
+        .contact-section h2::after {
+            background-color: var(--phy-white); /* White underline for contact */
+        }
         .contact-section p {
+            color: var(--phy-white);
             font-size: 1.1em;
             margin-bottom: 40px;
         }
@@ -264,18 +330,25 @@
         .contact-form textarea {
             width: calc(100% - 30px);
             padding: 15px;
-            border: 1px solid var(--phy-dark-accent);
+            border: 1px solid var(--phy-white); /* White border for inputs on dark background */
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent input fields */
+            color: var(--phy-white); /* White text in inputs */
             border-radius: 5px;
             font-size: 1em;
             font-family: 'Montserrat', sans-serif;
-            transition: border-color 0.3s ease, box-shadow 0.2s ease;
+            transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.2s ease;
+        }
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder { /* Placeholder text color */
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
-            border-color: var(--phy-primary-green);
-            box-shadow: 0 0 0 3px rgba(21, 102, 94, 0.2);
+            border-color: var(--phy-white); /* White border on focus */
+            background-color: rgba(255, 255, 255, 0.2); /* More opaque on focus */
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Subtle white focus ring */
         }
 
         .contact-form textarea {
@@ -284,27 +357,28 @@
         }
 
         .contact-form button {
-            background-color: var(--phy-primary-green);
-            color: var(--phy-white);
+            background-color: var(--phy-white); /* White button on dark green background */
+            color: var(--phy-primary-green); /* Green text on white button */
             padding: 15px 40px;
             border: none;
             border-radius: 5px;
             font-size: 1.1em;
-            font-weight: 600;
+            font-weight: 700; /* Bold text on button */
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 8px var(--phy-shadow);
         }
 
         .contact-form button:hover {
-            background-color: #1a8a7f;
+            background-color: var(--phy-light-gray); /* Slightly greyed white on hover */
+            color: var(--phy-dark-accent); /* Darker text on hover */
             transform: translateY(-3px);
             box-shadow: 0 6px 12px var(--phy-hover-shadow);
         }
 
         /* Footer */
         footer {
-            background-color: var(--phy-dark-accent);
+            background-color: var(--phy-dark-accent); /* Dark accent background */
             color: var(--phy-white);
             text-align: center;
             padding: 30px 0;
@@ -323,46 +397,36 @@
         }
 
         @media (max-width: 992px) {
-            .logo-banner {
-                height: 70vh; /* Adjust height for smaller screens */
-            }
             .logo-banner img {
-                max-width: 80%; /* Adjust for slightly smaller screens */
-                max-height: 60vh; /* Adjusted from 70vh (80% of 70vh is about 56vh) */
-            }
-
-            h1 {
-                font-size: 3em;
+                max-width: 90%; /* Allow larger on smaller desktop/tablet */
+                max-height: 90vh;
             }
 
             h2 {
                 font-size: 2.2em;
             }
 
+            .key-aspects p {
+                font-size: 1.1em;
+            }
             .aspect-grid {
                 grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            .logo-banner {
-                height: 60vh; /* Adjust height for mobile */
-            }
             .logo-banner img {
-                max-width: 90%;
-                max-height: 50vh; /* Adjusted from 70vh (80% of 60vh is about 48vh) */
-            }
-
-            h1 {
-                font-size: 2.5em;
+                max-width: 95%; /* Make it fill more on mobile */
+                max-height: 95vh;
             }
 
             h2 {
                 font-size: 1.8em;
+                margin-bottom: 30px;
             }
 
-            .key-aspects p {
-                font-size: 1.1em;
+            .key-aspects, .ceo-section, .contact-section {
+                padding: 60px 0; /* Less padding on mobile */
             }
 
             .aspect-item {
@@ -370,39 +434,30 @@
             }
 
             .ceo-image-container {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
 
             .ceo-text h3 {
-                text-align: center;
+                font-size: 1.5em;
             }
             .ceo-text p {
-                text-align: center;
+                font-size: 1em;
+                text-align: center; /* Center all bio text on mobile */
             }
         }
 
         @media (max-width: 480px) {
-            .logo-banner {
-                height: 50vh; /* Further adjust height for small phones */
-            }
             .logo-banner img {
-                max-width: 95%;
-                max-height: 40vh; /* Adjusted from 60vh (80% of 50vh is about 40vh) */
+                max-width: 98%;
+                max-height: 98vh;
             }
-
-            h1 {
-                font-size: 2em;
-            }
-
             h2 {
                 font-size: 1.5em;
             }
-
             .key-aspects p {
                 font-size: 1em;
             }
-
             .contact-form input,
             .contact-form textarea,
             .contact-form button {
@@ -420,24 +475,24 @@
 
         <section class="key-aspects" id="key-aspects">
             <div class="container">
-                <h2>Shaping the Future with Microalgae</h2>
-                <p>At <span class="bold-green">Phycalix</span>, we leverage <span class="bold-green">cutting-edge science</span> to transform microalgae into <span class="bold-green">high-value solutions</span>, driving innovation for a healthier and more sustainable world.</p>
+                <h2>Shaping the Future with <span class="bold-white">Microalgae</span></h2>
+                <p>At <span class="bold-white">Phycalix</span>, we leverage <span class="bold-white">cutting-edge science</span> to transform microalgae into <span class="bold-white">high-value solutions</span>, driving innovation for a healthier and more sustainable world.</p>
                 <div class="aspect-grid">
                     <div class="aspect-item">
                         <h3>Sustainable Innovation</h3>
-                        <p>Pioneering <span class="bold-green">eco-friendly technologies</span> for a greener tomorrow.</p>
+                        <p>Pioneering <span class="bold-white">eco-friendly technologies</span> for a greener tomorrow.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Scientific Precision</h3>
-                        <p>Driven by <span class="bold-green">rigorous research</span> and advanced biotechnology.</p>
+                        <p>Driven by <span class="bold-white">rigorous research</span> and advanced biotechnology.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Natural Harmony</h3>
-                        <p>Harnessing <span class="bold-green">nature's power</span> in perfect balance.</p>
+                        <p>Harnessing <span class="bold-white">nature's power</span> in perfect balance.</p>
                     </div>
                     <div class="aspect-item">
                         <h3>Modern Aesthetics</h3>
-                        <p>Combining functionality with <span class="bold-green">elegant, clean design</span>.</p>
+                        <p>Combining functionality with <span class="bold-white">elegant, clean design</span>.</p>
                     </div>
                 </div>
             </div>
@@ -445,14 +500,14 @@
 
         <section class="ceo-section" id="ceo">
             <div class="container">
-                <h2>Meet Our Founder</h2>
+                <h2 class="section-heading-dark">Meet Our Founder</h2>
                 <div class="ceo-content">
                     <div class="ceo-image-container">
                         <img src="assets/ceo_image.jpeg" alt="Victor Caxala, Founder & CEO of Phycalix">
                     </div>
                     <div class="ceo-text">
-                        <h3>Victor Caxala – Founder & CEO of Phycalix</h3>
-                        <p><span class="bold-green">Victor Caxala</span> is a biochemist, entrepreneur, and visionary with a passion for microalgae biotechnology. As the <span class="bold-green">founder and CEO of Phycalix</span>, he combines <span class="bold-green">science, design, and sustainability</span> to create innovative products that have a positive impact on people and the planet. His first product, the microalgae lamp <span class="bold-green">PHYCOlumina</span>, embodies his approach: aesthetic, functional, and future-oriented. With Phycalix, he aims to redefine microalgae as a <span class="bold-green">key technology for nutrition, medicine, and environmental solutions</span>.</p>
+                        <h3 class="bold-green">Victor Caxala – Founder & CEO of Phycalix</h3>
+                        <p class="section-text-light"><span class="bold-green">Victor Caxala</span> is a biochemist, entrepreneur, and visionary with a passion for microalgae biotechnology. As the <span class="bold-green">founder and CEO of Phycalix</span>, he combines <span class="bold-green">science, design, and sustainability</span> to create innovative products that have a positive impact on people and the planet. His first product, the microalgae lamp <span class="bold-green">PHYCOlumina</span>, embodies his approach: aesthetic, functional, and future-oriented. With Phycalix, he aims to redefine microalgae as a <span class="bold-green">key technology for nutrition, medicine, and environmental solutions</span>.</p>
                     </div>
                 </div>
             </div>
